@@ -1,25 +1,27 @@
-// Import three components
-// import Summary from './src/components/Summary';
-// import Meal from './src/components/Meal';
-// import Exercise from './src/components/Exercise';
+import React from 'react';
+import { styles } from './styles';
+import { getAuth, FacebookAuthProvider, signInWithCredential } from 'firebase/auth';
+import { LoginManager, AccessToken } from 'react-native-fbsdk-next';
+import app from './firebaseSetup';
 
-//import styles.js
-// import { styles } from './styles';
+import SignInScreen from './src/screens/SignInScreen.js';
+import Home from './src/screens/Home.js';
 
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { useNavigation } from '@react-navigation/native';
 
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
-
-// import { NavigationContainer } from '@react-navigation/native';
-// import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
-// const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-<View>
-  <Text>Hello World</Text>
-</View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="SignIn" component={SignInScreen} />
+        <Stack.Screen name="Home" options={{ title: 'BurnIt' }} component={Home} />
+
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
