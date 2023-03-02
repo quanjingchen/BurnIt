@@ -25,7 +25,7 @@ const SignInScreen = () => {
     const auth = getAuth(app);
     const credential = FacebookAuthProvider.credential(data.accessToken);
     const user = await signInWithCredential(auth, credential);
-    console.log(user);
+    // console.log(user);
     // Navigate to the Summary component
     navigation.navigate('Home');
   }

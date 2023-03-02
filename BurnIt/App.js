@@ -19,7 +19,6 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name="SignIn" component={SignInScreen} />
         <Stack.Screen name="Home" options={{ title: 'BurnIt' }} component={Home} />
-
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -1,13 +1,16 @@
-import React from 'react';
-import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, Button, TextInput, Modal } from 'react-native';
 import { Avatar } from 'react-native-elements';
-import { getAuth } from 'firebase/auth';
 import app from '../../firebaseSetup';
+import ProfileModal from './ProfileModal.js';
 
-const Summary = () => {
-  const auth = getAuth(app);
-  const user = auth.currentUser;
-  // console.log('USER: ', user);
+
+const Summary = ({ user, setUser, currentUser, handleCreateUser}) => {
+  const [showProfileModal, setShowProfileModal] = useState(false);
+
+  const toggleProfileModal = () => {
+    setShowProfileModal(!showProfileModal);
+  };
 
   const currentDate = new Date().toLocaleDateString('en-US', {
     weekday: 'long',
@@ -21,22 +24,24 @@ const Summary = () => {
         <View style={styles.dateContainer}>
           <Text style={styles.dateText}>{currentDate}</Text>
         </View>
-        {user ? (
+        {currentUser ? (
           <View style={styles.userIconContainer}>
             <Avatar
               rounded
-              source={{ uri: user.photoURL }}
+              source={{ uri: currentUser.photoURL }}
               size={70}
               containerStyle={{ marginRight: 10 }}
+              onPress={toggleProfileModal}
             />
-            <Text style={styles.userNameText}>{user.displayName}</Text>
+            <Text style={styles.userNameText}>{user.name.split(' ')[0]}</Text>
           </View>
         ) : null}
       </View>
 
+      <Modal visible={showProfileModal} animationType="slide">
+        <ProfileModal user={user} setUser={setUser} toggleProfileModal={toggleProfileModal} handleCreateUser={handleCreateUser}/>
+      </Modal>
 
-
-      {/* Add the rest of your Summary component here */}
     </View>
   );
 };
@@ -62,18 +67,20 @@ const styles = StyleSheet.create({
   userIconContainer: {
     flexDirection: 'column',
     alignItems: 'center',
+    justifyContent:'center'
   },
   dateContainer: {
     alignItems: 'flex-start',
     flex: 1
   },
   dateText: {
-    fontSize: 16,
-    // fontWeight: 'bold',
+    fontSize: 20,
+    fontWeight: 'bold',
   },
   userNameText: {
     fontSize: 16,
-    fontWeight: 'bold',
+    marginTop:5
+    // fontWeight: 'bold',
   },
 });
 
