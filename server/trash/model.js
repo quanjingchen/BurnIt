@@ -9,7 +9,9 @@ const getUserById = async (query, callback) => {
 
 
 const addMeal = async (user_id, foodData, callback) => {
-  console.log('user_id in model: ', user_id);
+  // console.log('user_id in model: ', user_id);
+  // console.log('foodData in model: ', foodData);
+
   const mealData = foodData.map(({ food_name, nf_calories }) => ({
     user_id: user_id, // or you can get it from the req object
     date: new Date(),
