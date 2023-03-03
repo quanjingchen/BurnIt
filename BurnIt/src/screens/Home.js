@@ -89,14 +89,16 @@ const Home = () => {
 
       <Tab.Screen
         name="Exercise"
-        component={Exercise}
         options={{
           tabBarLabel: 'Exercise',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="run" color={color} size={26} />
           ),
         }}
-      />
+      >
+        {(props) => <Exercise {...props} user={user}/>}
+      </Tab.Screen>
+
     </Tab.Navigator>
   );
 };

@@ -22,7 +22,7 @@ module.exports = {
         console.error('ERR WITH RETRIEVING DATA FROM DB: ', err);
         res.sendStatus(400);
       } else {
-        res.status(200).json({ message: 'User created successfully' });
+        res.status(201).json({ message: 'User created successfully' });
       }
     });
   }

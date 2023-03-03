@@ -12,7 +12,29 @@ const options = {
 
 module.exports = {
 
-  addMeal: (req, res) => {
+  getMealByDate: (req, res) => {
+    const {date1, date2, user_id} = req.query;
+    console.log('CONTROLLER date1: ', date1);
+    console.log('CONTROLLER date2: ', date2);
+    models.meals.getMealByDate(date1, date2, user_id, (err, result) => {
+      if (err) {
+        console.error('ERR WITH GETING MEAL FROM DB: ', err);
+        res.sendStatus(400);
+      } else {
+        // sort the food by calories
+        result.sort((a, b) => b.y - a.y);
+        const capitalizedData = result.map(item => ({
+          x: item.x.charAt(0).toUpperCase() + item.x.slice(1),
+          y: item.y
+        }));
+        // sent the top 5 foods to the client
+        res.status(200).json(capitalizedData);
+        console.log('GETING MEAL FROM DB SUCCESSFULLY:', result);
+      }
+    });
+  },
+
+  addMeal:  (req, res) => {
     // console.log("IM IN POST MEAL: ", req.body.food);
     const query = req.body.food;
     const data = {
@@ -32,19 +54,10 @@ module.exports = {
           if (err) {
             console.error('ERR WITH POSTING MEAL TO DB: ', err);
           } else {
-            console.log('meal created successfully') ;
+            res.status(201).json({ message: 'Meals created successfully' });
           }
         });
-        // sort the food by nf_calories
-        const sortedFoods = foods.sort((a, b) => b.nf_calories - a.nf_calories);
-        // get the top 5 foods with largest nf_calories
-        const top5Foods = foods.slice(0, 5);
-        // sent the top 5 foods to the client
-        const pieChartData = top5Foods.map(food => ({
-          x: food.food_name.charAt(0).toUpperCase() + food.food_name.slice(1),
-          y: food.nf_calories
-        }));
-        res.status(201).json(pieChartData);
+
       })
       .catch(error => {
         console.log(error);

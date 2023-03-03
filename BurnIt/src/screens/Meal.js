@@ -8,12 +8,27 @@ const Meal = ({ user }) => {
   const colors = ['#F44336', '#2196F3', '#FFEB3B', '#4CAF50', '#FF9800'];
   const [inputText, setInputText] = useState('');
 
-  const [food, setFood] = useState([
-    { x: "Eggs", y: 150 },
-    { x: "Bacon", y: 100 },
-    { x: "Coffee", y: 5 }
-  ]);
+  const [food, setFood] = useState([]);
   const widthAndHeight = 250;
+
+  const handleGetMeals = (date1, days) => {
+    date1 = date1 || new Date();
+    date1.setHours(0, 0, 0, 0);
+    days = days || 1;
+    let date2 = new Date(date1);
+    date2.setDate(date1.getDate() + days);
+    // console.log('date: ', date1, date1)
+    axios.get('http://localhost:3000/meals', { params: { date1, date2, user_id: user.uid } })
+      .then(response => {
+        // Update the food state with the response from the server
+        setFood(response.data);
+        // console.log('get meal by date', response.data)
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
+
   const handleAddButtonPress = () => {
     // Send a post request to the server with the inputText
     if (inputText === '') {
@@ -21,17 +36,18 @@ const Meal = ({ user }) => {
       return;
     }
     console.log('post meal to server');
-    axios.post('http://localhost:3000/meals', { food: inputText, user_id: user.uid})
+    axios.post('http://localhost:3000/meals', { food: inputText, user_id: user.uid })
       .then(response => {
-        // Update the food state with the response from the server
-        setFood(response.data);
         // Clear the input text
         setInputText('');
+        handleGetMeals();
       })
       .catch(error => {
         console.error(error);
       });
   }
+  useEffect(handleGetMeals, []);
+
   return (
     <View style={styles.container}>
       <Text style={styles.headerText}>Calories: + {Math.floor(food.reduce((accumulator, current) => accumulator + current.y, 0))}</Text>
@@ -39,12 +55,12 @@ const Meal = ({ user }) => {
         <VictoryPie
           width={350}
           height={350}
-          data={food}
+          data={food && food.length > 0 ? food.slice(0, 5) : [{ x: "Add food", y: 100 }]}
           innerRadius={40}
           colorScale={colors}
           style={{
             labels: {
-              fill: 'black', fontSize: 15, padding: 7,
+              fill: 'black', fontSize: 16, padding: -70,
             },
           }}
         >
@@ -73,7 +89,7 @@ const Meal = ({ user }) => {
           placeholder="e.g., for breakfast, I had two eggs, two slices of bacon, and coffee "
         />
         <View style={styles.buttonContainer}>
-        <Button title="Add" onPress={handleAddButtonPress} />
+          <Button title="Add" onPress={handleAddButtonPress} />
         </View>
       </View>
 

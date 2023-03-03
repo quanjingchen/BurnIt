@@ -27,12 +27,21 @@ const mealSchema = new mongoose.Schema({
   nf_calories: Number
 });
 
+const exerciseSchema = new mongoose.Schema({
+  user_id: { type: String, ref: 'User', required: true },
+  date: { type: Date, default: Date.now, required: true },
+  activity_name: String,
+  nf_calories: Number
+});
+
 const User = mongoose.model('User', userSchema);
 const Meal = mongoose.model('Meal', mealSchema);
+const Exercise = mongoose.model('Exercise', exerciseSchema);
 
 
 // 3. Export the models
 module.exports.User = User;
 module.exports.Meal = Meal;
+module.exports.Exercise = Exercise;
 
 
