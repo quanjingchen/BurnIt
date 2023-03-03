@@ -13,7 +13,7 @@ const options = {
 module.exports = {
 
   getMealByDate: (req, res) => {
-    const {date1, date2, user_id} = req.query;
+    const { date1, date2, user_id } = req.query;
     console.log('CONTROLLER date1: ', date1);
     console.log('CONTROLLER date2: ', date2);
     models.meals.getMealByDate(date1, date2, user_id, (err, result) => {
@@ -34,7 +34,22 @@ module.exports = {
     });
   },
 
-  addMeal:  (req, res) => {
+  getCaloriesByDays: (req, res) => {
+    const { days, user_id } = req.query;
+    models.meals.getCaloriesByDays(days, user_id, (err, result) => {
+      if (err) {
+        console.error('ERR WITH GETING MEAL Calories FROM DB: ', err);
+        res.sendStatus(400);
+      } else {
+
+        // sent the line chart data to the client
+        res.status(200).json(result);
+        console.log('GETING MEAL Calories FROM DB SUCCESSFULLY:', result);
+      }
+    });
+  },
+
+  addMeal: (req, res) => {
     // console.log("IM IN POST MEAL: ", req.body.food);
     const query = req.body.food;
     const data = {
@@ -50,7 +65,7 @@ module.exports = {
           nf_calories: food.nf_calories,
         }));
         // insert foods into meal collection
-        models.meals.addMeal(user_id, foods,  (err, result) => {
+        models.meals.addMeal(user_id, foods, (err, result) => {
           if (err) {
             console.error('ERR WITH POSTING MEAL TO DB: ', err);
           } else {

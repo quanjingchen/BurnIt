@@ -22,11 +22,22 @@ module.exports = {
     date1 = new Date(date1);
     date2 = new Date(date2);
     Exercise.aggregate([
-      { $match: { date: { $gte: date1, $lt: date2 } } },
+      { $match: { user_id: user_id, date: { $gte: date1, $lt: date2 } } },
       { $group: { _id: "$activity_name", totalCalories: { $sum: "$nf_calories" } } },
       { $project: { x: "$_id", y: "$totalCalories", _id: 0 } }
     ])
       .then(result => callback(null, result))
       .catch(err => callback(err))
+  },
+
+  getCaloriesByDays: (days, user_id, callback) => {
+    var startDate = new Date(Date.now() - days * 24 * 60 * 60 * 1000);
+    Exercise.aggregate([
+      { $match: { user_id: user_id, date: { $gte: startDate } } },
+      { $group: { _id: { $dateToString: { format: '%Y-%m-%d', date: '$date' } }, totalCalories: { $sum: '$nf_calories' } } },
+      { $sort: { _id: 1 } }
+    ])
+    .then(result => callback(null, result))
+    .catch(err => callback(err))
   }
 };

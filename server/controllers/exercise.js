@@ -33,6 +33,20 @@ module.exports = {
       }
     });
   },
+  getCaloriesByDays: (req, res) => {
+    const { days, user_id } = req.query;
+    models.exercise.getCaloriesByDays(days, user_id, (err, result) => {
+      if (err) {
+        console.error('ERR WITH GETING MEAL Calories FROM DB: ', err);
+        res.sendStatus(400);
+      } else {
+
+        // sent the line chart data to the client
+        res.status(200).json(result);
+        console.log('GETING MEAL Calories FROM DB SUCCESSFULLY:', result);
+      }
+    });
+  },
 
   addExercise: (req, res) => {
     // console.log("IM IN POST MEAL: ", req.body.activity);
