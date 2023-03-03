@@ -5,7 +5,8 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import axios from 'axios';
 
 const Exercise = ({ user }) => {
-  const colors = ['#F44336', '#2196F3', '#FFEB3B', '#4CAF50', '#FF9800'];
+  const colors = ['#2D87BB', '#64C2A6','#AADEA7','#E6F69D', '#FEAE65', '#F66D44'];
+  const displayNumber = 6;
   const [inputText, setInputText] = useState('');
 
   const [exercise, setExercise] = useState([]);
@@ -53,9 +54,11 @@ const Exercise = ({ user }) => {
       <Text style={styles.headerText}>Calories: - {Math.floor(exercise.reduce((accumulator, current) => accumulator + current.y, 0))}</Text>
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <VictoryPie
-          width={350}
-          height={350}
-          data={exercise && exercise.length > 0 ? exercise.slice(0, 5) : [{ x: "Add exercise", y: 100 }]}
+          width={400}
+          height={400}
+          cornerRadius={({ datum }) => datum.y * 5}
+
+          data={exercise && exercise.length > 0 ? exercise.slice(0, displayNumber) : [{ x: "Add exercise", y: 100 }]}
           innerRadius={40}
           colorScale={colors}
           style={{

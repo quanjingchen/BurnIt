@@ -5,7 +5,10 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import axios from 'axios';
 
 const Meal = ({ user }) => {
-  const colors = ['#F44336', '#2196F3', '#FFEB3B', '#4CAF50', '#FF9800'];
+  // const colors = ['#F44336', '#2196F3', '#FFEB3B', '#4CAF50', '#FF9800'];
+  const colors = ['#F66D44', '#FEAE65', '#E6F69D', '#AADEA7', '#64C2A6', '#2D87BB'];
+  const displayNumber = 6;
+
   const [inputText, setInputText] = useState('');
 
   const [food, setFood] = useState([]);
@@ -53,9 +56,10 @@ const Meal = ({ user }) => {
       <Text style={styles.headerText}>Calories: + {Math.floor(food.reduce((accumulator, current) => accumulator + current.y, 0))}</Text>
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <VictoryPie
-          width={350}
-          height={350}
-          data={food && food.length > 0 ? food.slice(0, 5) : [{ x: "Add food", y: 100 }]}
+          width={400}
+          height={400}
+          cornerRadius={({ datum }) => datum.y * 5}
+          data={food && food.length > 0 ? food.slice(0, displayNumber) : [{ x: "Add food", y: 100 }]}
           innerRadius={40}
           colorScale={colors}
           style={{
@@ -102,16 +106,17 @@ export default Meal;
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor:'black',
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 10,
-    margin: 20
+    padding: 10
   },
   headerText: {
     textAlign: 'center',
-    fontSize: 18
+    fontSize: 18,
+    color:'white'
   },
   promptContainer: {
     flexDirection: 'row',
@@ -122,6 +127,7 @@ const styles = StyleSheet.create({
   promptText: {
     fontSize: 18,
     marginRight: 15,
+    color: 'white'
   },
   inputContainer: {
     flexDirection: 'row',

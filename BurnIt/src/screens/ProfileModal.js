@@ -35,7 +35,9 @@ const ProfileModal = ({ user, setUser, toggleProfileModal, handleCreateUser }) =
   return (
     <View style={styles.container}>
       <View style={styles.innerContainer}>
+
         <Text style={styles.heading}>Profile Information</Text>
+
 
         <Text style={styles.label}>Name:</Text>
         <TextInput style={styles.input} value={name} onChangeText={setName} />
@@ -45,12 +47,12 @@ const ProfileModal = ({ user, setUser, toggleProfileModal, handleCreateUser }) =
           <Button
             title="Female"
             onPress={() => handleGenderChange('female')}
-            color={gender === 'female' ? '#FF0303' : '#000000'}
+            color={gender === 'female' ? '#F66D44' : '#000000'}
           />
           <Button
             title="Male"
             onPress={() => handleGenderChange('male')}
-            color={gender === 'male' ? '#FF0303' : '#000000'}
+            color={gender === 'male' ? '#2D87BB' : '#000000'}
           />
         </View>
 
@@ -62,12 +64,18 @@ const ProfileModal = ({ user, setUser, toggleProfileModal, handleCreateUser }) =
 
         <Text style={styles.label}>Age:</Text>
         <TextInput style={styles.input} value={age} onChangeText={setAge} />
+        <View style={styles.uploadContainer}>
+          <TouchableOpacity onPress={handleUploadPhoto}>
+            <Text style={styles.uploadButtonText}>Upload Photo</Text>
+          </TouchableOpacity>
+        </View>
 
-        <TouchableOpacity onPress={handleUploadPhoto}>
-          <Text style={styles.uploadButtonText}>Upload Photo</Text>
-        </TouchableOpacity>
 
-        <Button title="Save" onPress={handleSave} />
+        <View style={styles.buttonContainer}>
+          <Button title="Quit" onPress={toggleProfileModal} />
+          <Button title="Save" onPress={handleSave} />
+        </View>
+
       </View>
     </View>
   );
@@ -107,14 +115,22 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-around',
+    width: '100%',
+    marginTop: 10,
+  },
+  uploadContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'space-evenly',
     width: '100%',
     marginTop: 10,
+    marginBottom: 10,
+
   },
   uploadButtonText: {
     color: 'blue',
     textDecorationLine: 'underline',
-    marginTop: 10,
   }
 });
 
