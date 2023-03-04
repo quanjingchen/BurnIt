@@ -12,7 +12,13 @@ const Summary = ({ user, setUser, currentUser, handleCreateUser, update }) => {
   const [showProfileModal, setShowProfileModal] = useState(false);
   const [days, setDays] = useState(7); // default to last 7 days
   const [chartData, setChartData] = useState();
+  const [suggestion, setSuggestion] = useState(`Hey there! I'm Calor, your personal calories counselor. Just tell me what you eat and do, and I'll help you stay on track with your health goals. Let's get started!`);
 
+  const postChatGPT = () => {
+    axios.get('http://localhost:3000/meals/suggestion', { params: { user_id: user.uid } })
+      .then(result => setSuggestion(result.data.replace(/["\n]/g, '')))
+      .catch(err => console.error(err))
+  };
 
   const handleLast7Days = () => {
     setDays(7);
@@ -99,8 +105,12 @@ const Summary = ({ user, setUser, currentUser, handleCreateUser, update }) => {
   });
 
   useEffect(handleGetCaloriesIntake, [days]);
-  useEffect(() => {  console.log("Update value changed");
-  handleGetCaloriesIntake()}, [update]);
+  useEffect(postChatGPT, []);
+
+  useEffect(() => {
+    console.log("Update value changed");
+    handleGetCaloriesIntake()
+  }, [update]);
 
   return (
     <View style={styles.container}>
@@ -168,8 +178,9 @@ const Summary = ({ user, setUser, currentUser, handleCreateUser, update }) => {
       <Text style={{ fontSize: 25, color: 'white', fontWeight: 'bold' }}>Suggestion </Text>
 
       <View style={styles.suggestionContainer}>
-      {(chartData && chartData.datasets[0].data.length <= 4)  ?    <Text style={styles.suggestionText}> Hey there! I'm Calor, your personal calories counselor. Just tell me what you eat and do, and I'll help you stay on track with your health goals. Let's get started! </Text> : <Text style={styles.suggestionText}>I saw you've been eating a ton of burgers lately. How about trying a veggie stir-fry or something?</Text>}
-
+        <TouchableOpacity onPress={postChatGPT}>
+          <Text style={[styles.suggestionText, { color: 'white' }]}>{suggestion}</Text>
+        </TouchableOpacity>
       </View>
 
       <Modal visible={showProfileModal} animationType="slide">

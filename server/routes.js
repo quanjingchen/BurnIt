@@ -9,9 +9,14 @@ router.get('/users/:uid', controllers.users.getUserData);
 
 router.post('/users', controllers.users.createOrUpdateUser);
 
-router.get('/meals/summary', controllers.meals.getCaloriesByDays);
 
 router.get('/meals', controllers.meals.getMealByDate);
+
+router.get('/meals/summary', controllers.meals.getCaloriesByDays);
+
+router.get('/meals/suggestion', controllers.chat.getSuggestion);
+
+
 
 router.post('/meals', controllers.meals.addMeal);
 

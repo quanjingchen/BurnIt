@@ -43,7 +43,7 @@ module.exports = {
 
         // sent the line chart data to the client
         res.status(200).json(result);
-        console.log('GETING MEAL Calories FROM DB SUCCESSFULLY:', result);
+        // console.log('GETING MEAL Calories FROM DB SUCCESSFULLY:', result);
       }
     });
   },

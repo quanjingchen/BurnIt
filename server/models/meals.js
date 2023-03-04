@@ -16,7 +16,7 @@ module.exports = {
   },
 
   getMealByDate: (date1, date2, user_id, callback) => {
-    console.log('date1: ',typeof date1);
+    console.log('date1: ', typeof date1);
     console.log('date2: ', typeof date2);
     date1 = new Date(date1);
     date2 = new Date(date2);
@@ -36,7 +36,19 @@ module.exports = {
       { $group: { _id: { $dateToString: { format: '%Y-%m-%d', date: '$date' } }, totalCalories: { $sum: '$nf_calories' } } },
       { $sort: { _id: 1 } }
     ])
-    .then(result => callback(null, result))
-    .catch(err => callback(err))
+      .then(result => callback(null, result))
+      .catch(err => callback(err))
+  },
+
+  getMealCaloriesByDay: (user_id) => {
+    var startDate = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+    return Meal.aggregate([
+      { $match: { user_id: user_id, date: { $gte: startDate } } },
+      { $group: { _id: { food_name: '$food_name', date: { $dateToString: { format: '%Y-%m-%d', date: '$date' } } }, totalCalories: { $sum: '$nf_calories' } } },
+      { $group: { _id: '$_id.date', foods: {
+            $push: { f: '$_id.food_name', c: '$totalCalories' }
+          } } },
+      { $project: { _id: 0, date: '$_id', foods: 1 } }
+    ]);
   }
 };

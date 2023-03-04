@@ -39,5 +39,17 @@ module.exports = {
     ])
     .then(result => callback(null, result))
     .catch(err => callback(err))
+  },
+
+  getExerciseCaloriesByDay: (user_id) => {
+    var startDate = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+    return Exercise.aggregate([
+      { $match: { user_id: user_id, date: { $gte: startDate } } },
+      { $group: { _id: { activity_name: '$activity_name', date: { $dateToString: { format: '%Y-%m-%d', date: '$date' } } }, totalCalories: { $sum: '$nf_calories' } } },
+      { $group: { _id: '$_id.date', foods: {
+            $push: { f: '$_id.activity_name', c: '$totalCalories' }
+          } } },
+      { $project: { _id: 0, date: '$_id', foods: 1 } }
+    ]);
   }
 };

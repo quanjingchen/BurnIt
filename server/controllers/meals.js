@@ -29,7 +29,7 @@ module.exports = {
         }));
         // sent the top 5 foods to the client
         res.status(200).json(capitalizedData);
-        console.log('GETING MEAL FROM DB SUCCESSFULLY:', result);
+        // console.log('GETING MEAL FROM DB SUCCESSFULLY:', result);
       }
     });
   },
@@ -41,10 +41,9 @@ module.exports = {
         console.error('ERR WITH GETING MEAL Calories FROM DB: ', err);
         res.sendStatus(400);
       } else {
-
         // sent the line chart data to the client
         res.status(200).json(result);
-        console.log('GETING MEAL Calories FROM DB SUCCESSFULLY:', result);
+        // console.log('GETING MEAL Calories FROM DB SUCCESSFULLY:', result);
       }
     });
   },
@@ -79,5 +78,4 @@ module.exports = {
         res.send({ success: false });
       });
   }
-
 };
