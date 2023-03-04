@@ -18,7 +18,21 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="SignIn" component={SignInScreen} />
-        <Stack.Screen name="Home" options={{ title: 'BurnIt' }} component={Home} />
+        <Stack.Screen
+          name="Home"
+          options={{ title: 'BurnIt' }}
+          component={Home}
+          options={{
+            title: 'BurnIt',
+            headerTitleStyle: {
+              fontSize: 24,
+              fontWeight: 'bold'
+            },
+            headerStyle: {
+              backgroundColor: 'black',
+            },
+            headerTintColor: 'white'
+          }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

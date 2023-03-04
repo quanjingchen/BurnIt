@@ -16,7 +16,7 @@ function getRandomNumber(min, max) {
 const exercise = [];
 const activities = ['running', 'walking', 'swimming', 'basketball', 'football', 'singing', 'jogging'];
 
-for (let i = 0; i < 200; i++) {
+for (let i = 0; i < 100; i++) {
   exercise.push({
     user_id: 'RapirdTdI8PurYhOpXx1tdZtsTX2',
     date: getRandomDate(),

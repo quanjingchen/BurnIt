@@ -155,6 +155,12 @@ const Summary = ({ user, setUser, currentUser, handleCreateUser }) => {
         <Text style={styles.legendText}>Exercise</Text>
       </View>
 
+      <Text style={{ fontSize: 25, color: 'white', fontWeight: 'bold' }}>Suggestion </Text>
+
+      {/* <View style={styles.suggestionContainer}>
+      {chartData ?    <Text style={styles.suggestionText}> Hey there! I'm Calor, your personal calories counselor. Just tell me what you eat and do, and I'll help you stay on track with your health goals. Let's get started! </Text> : <Text style={styles.suggestionText}>I saw you've been eating a ton of burgers lately. How about trying a veggie stir-fry or something?</Text>}
+
+      </View> */}
 
       <Modal visible={showProfileModal} animationType="slide">
         <ProfileModal user={user} setUser={setUser} toggleProfileModal={toggleProfileModal} handleCreateUser={handleCreateUser} />
@@ -210,7 +216,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     marginTop: 10,
-    marginBottom: 16,
   },
 
   showText: {
@@ -221,11 +226,16 @@ const styles = StyleSheet.create({
   selected: {
     fontWeight: 'bold',
   },
+  chart: {
+    marginTop: 16,
+    borderRadius: 16
+  },
   legend: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 20,
+    marginBottom: 20
   },
   legendItem: {
     width: 16,
@@ -237,6 +247,25 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 14,
     marginLeft: 8
+  },
+
+  suggestionContainer: {
+    width: 350,
+    height: 100,
+    marginTop: 12,
+    backgroundColor: '#2C3639',
+    borderRadius: 16,
+    paddingTop: 15,
+    paddingRight: 10,
+    paddingLeft: 10,
+
+  },
+  suggestionText: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    // fontWeight: 'bold',
+    lineHeight: 24
+
   }
 });
 

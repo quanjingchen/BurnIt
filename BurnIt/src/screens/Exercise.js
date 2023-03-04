@@ -6,7 +6,7 @@ import axios from 'axios';
 
 const Exercise = ({ user }) => {
   const colors = ['#2D87BB', '#64C2A6','#AADEA7','#E6F69D', '#FEAE65', '#F66D44'];
-  const displayNumber = 6;
+  const displayNumber = 5;
   const [inputText, setInputText] = useState('');
 
   const [exercise, setExercise] = useState([]);
@@ -57,42 +57,46 @@ const Exercise = ({ user }) => {
           width={400}
           height={400}
           cornerRadius={({ datum }) => datum.y * 5}
-
           data={exercise && exercise.length > 0 ? exercise.slice(0, displayNumber) : [{ x: "Add exercise", y: 100 }]}
           innerRadius={40}
           colorScale={colors}
           style={{
             labels: {
-              fill: 'black', fontSize: 16, padding: -50,
+              fill: 'black', fontSize: 16, padding: -70,
             },
           }}
         >
         </VictoryPie>
       </View>
       <View style={styles.promptContainer}>
-        <Text style={styles.promptText}>Which exercise you did today?</Text>
-        <MaterialCommunityIcons
+        <Text style={styles.promptText}>Tell me which exercise you did today?</Text>
+        {/* <MaterialCommunityIcons
           style={styles.micIcon}
           name="chat-processing-outline"
           color={'black'}
-          size={40} />
+          size={40} /> */}
       </View>
 
       <View style={styles.inputContainer}>
         <MaterialCommunityIcons
           style={styles.micIcon}
           name="microphone"
-          size={26}
+          size={36}
+          color="white"
         />
         <TextInput
           style={styles.input}
           multiline={true}
           value={inputText}
           onChangeText={setInputText}
-          placeholder="e.g., I ran for 2 miles and cooked dinner "
+          placeholder="e.g., I ran for 2 miles and cooked dinner"
+          placeholderTextColor="grey"
         />
         <View style={styles.buttonContainer}>
-        <Button title="Add" onPress={handleAddButtonPress} />
+          <Button
+            title="Add"
+            onPress={handleAddButtonPress}
+          />
         </View>
       </View>
 
@@ -104,16 +108,19 @@ export default Exercise;
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: 'black',
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 10,
-    margin: 20
+    padding: 10
   },
   headerText: {
+    marginTop: 20,
     textAlign: 'center',
-    fontSize: 18
+    fontSize: 24,
+    fontWeight:'bold',
+    color: 'white'
   },
   promptContainer: {
     flexDirection: 'row',
@@ -124,6 +131,8 @@ const styles = StyleSheet.create({
   promptText: {
     fontSize: 18,
     marginRight: 15,
+    color: 'white',
+    fontWeight:'bold'
   },
   inputContainer: {
     flexDirection: 'row',
@@ -135,16 +144,19 @@ const styles = StyleSheet.create({
     fontSize: 16,
     flex: 1,
     height: 80,
-    borderColor: 'gray',
+    borderColor: '#2C3639',
     borderWidth: 1,
     borderRadius: 5,
     paddingHorizontal: 10,
+    backgroundColor: '#2C3639',
     marginRight: 10,
+    color: 'white',
+    textAlignVertical: 'center'
   },
   buttonContainer: {
-    flex: 0,
+    // flex: 0,
   },
   micIcon: {
-    marginRight: 5,
+    marginRight: 10,
   }
 });

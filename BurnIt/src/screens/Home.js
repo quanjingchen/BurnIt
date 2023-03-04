@@ -59,14 +59,16 @@ const Home = () => {
   return (
     <Tab.Navigator
       initialRouteName="Summary"
-      activeColor="#FF0303"
-      barStyle={{ backgroundColor: '#F9F9F9' }}
+      // activeColor="#FF0303"
+      activeColor="#F66D44"
+      inactiveColor="#A9A9A9"
+      barStyle={{ backgroundColor: '#2C3639' }}
       screenOptions={{ headerShown: false }}
     >
       <Tab.Screen
         name="Summary"
         options={{
-          tabBarLabel: 'Home',
+          tabBarLabel: 'Summary',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="home" color={color} size={26} />
           ),

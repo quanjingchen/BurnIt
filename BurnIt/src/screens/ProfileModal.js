@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const ProfileModal = ({ user, setUser, toggleProfileModal, handleCreateUser }) => {
+const ProfileModal = ({ user, setUser, toggleProfileModal, handleCreateUser}) => {
   const [name, setName] = useState(user.name);
   const [gender, setGender] = useState(user.gender);
   const [weight, setWeight] = useState(user.weight_kg.toString());
@@ -10,8 +10,7 @@ const ProfileModal = ({ user, setUser, toggleProfileModal, handleCreateUser }) =
   const [age, setAge] = useState(user.age.toString());
 
   const handleUploadPhoto = () => {
-    // Implement photo uploading logic here
-    // You can use a library like react-native-image-picker to handle the selection of an image from the user's camera roll
+
   };
 
   const handleSave = () => {
@@ -84,7 +83,7 @@ const ProfileModal = ({ user, setUser, toggleProfileModal, handleCreateUser }) =
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
+    backgroundColor: 'rgba(0,0,0,0.8)',
     justifyContent: 'center',
     alignItems: 'center',
   },

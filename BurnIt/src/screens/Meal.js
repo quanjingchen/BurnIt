@@ -7,7 +7,7 @@ import axios from 'axios';
 const Meal = ({ user }) => {
   // const colors = ['#F44336', '#2196F3', '#FFEB3B', '#4CAF50', '#FF9800'];
   const colors = ['#F66D44', '#FEAE65', '#E6F69D', '#AADEA7', '#64C2A6', '#2D87BB'];
-  const displayNumber = 6;
+  const displayNumber = 5;
 
   const [inputText, setInputText] = useState('');
 
@@ -71,19 +71,20 @@ const Meal = ({ user }) => {
         </VictoryPie>
       </View>
       <View style={styles.promptContainer}>
-        <Text style={styles.promptText}>What did you eat today?</Text>
-        <MaterialCommunityIcons
+        <Text style={styles.promptText}>Tell me what did you eat today?</Text>
+        {/* <MaterialCommunityIcons
           style={styles.micIcon}
           name="chat-processing-outline"
           color={'black'}
-          size={40} />
+          size={40} /> */}
       </View>
 
       <View style={styles.inputContainer}>
         <MaterialCommunityIcons
           style={styles.micIcon}
           name="microphone"
-          size={26}
+          size={36}
+          color="white"
         />
         <TextInput
           style={styles.input}
@@ -91,9 +92,13 @@ const Meal = ({ user }) => {
           value={inputText}
           onChangeText={setInputText}
           placeholder="e.g., for breakfast, I had two eggs, two slices of bacon, and coffee "
+          placeholderTextColor="grey"
         />
         <View style={styles.buttonContainer}>
-          <Button title="Add" onPress={handleAddButtonPress} />
+          <Button
+            title="Add"
+            onPress={handleAddButtonPress}
+          />
         </View>
       </View>
 
@@ -106,7 +111,7 @@ export default Meal;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor:'black',
+    backgroundColor: 'black',
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-between',
@@ -114,9 +119,11 @@ const styles = StyleSheet.create({
     padding: 10
   },
   headerText: {
+    marginTop: 20,
     textAlign: 'center',
-    fontSize: 18,
-    color:'white'
+    fontSize: 24,
+    fontWeight:'bold',
+    color: 'white'
   },
   promptContainer: {
     flexDirection: 'row',
@@ -127,7 +134,8 @@ const styles = StyleSheet.create({
   promptText: {
     fontSize: 18,
     marginRight: 15,
-    color: 'white'
+    color: 'white',
+    fontWeight: 'bold'
   },
   inputContainer: {
     flexDirection: 'row',
@@ -139,16 +147,19 @@ const styles = StyleSheet.create({
     fontSize: 16,
     flex: 1,
     height: 80,
-    borderColor: 'gray',
+    borderColor: '#2C3639',
     borderWidth: 1,
     borderRadius: 5,
     paddingHorizontal: 10,
+    backgroundColor: '#2C3639',
     marginRight: 10,
+    color: 'white',
+    textAlignVertical: 'center'
   },
   buttonContainer: {
-    flex: 0,
+    // flex: 0,
   },
   micIcon: {
-    marginRight: 5,
+    marginRight: 10,
   }
 });

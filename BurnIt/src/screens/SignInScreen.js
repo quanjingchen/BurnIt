@@ -31,7 +31,7 @@ const SignInScreen = () => {
   }
 
   return (
-    <View>
+    <View style={{ flex: 1, justifyContent: 'center' }}>
       <Button title='Sign in with Facebook' onPress={SignInWithFB}/>
     </View>
   );

@@ -16,7 +16,7 @@ function getRandomNumber(min, max) {
 const meals = [];
 const foods = ['rice', 'chicken', 'salad', 'pizza', 'pasta', 'steak', 'tacos'];
 
-for (let i = 0; i < 200; i++) {
+for (let i = 0; i < 100; i++) {
   meals.push({
     user_id: 'RapirdTdI8PurYhOpXx1tdZtsTX2',
     date: getRandomDate(),
