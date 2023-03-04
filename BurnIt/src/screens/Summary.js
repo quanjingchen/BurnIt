@@ -8,7 +8,7 @@ import { LineChart } from 'react-native-chart-kit';
 
 
 
-const Summary = ({ user, setUser, currentUser, handleCreateUser }) => {
+const Summary = ({ user, setUser, currentUser, handleCreateUser, update }) => {
   const [showProfileModal, setShowProfileModal] = useState(false);
   const [days, setDays] = useState(7); // default to last 7 days
   const [chartData, setChartData] = useState();
@@ -23,8 +23,16 @@ const Summary = ({ user, setUser, currentUser, handleCreateUser }) => {
   };
 
   const handleGetCaloriesIntake = () => {
+    const currentDate = new Date();
+
+    const year = currentDate.getFullYear();
+    const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+    const day = currentDate.getDate().toString().padStart(2, '0');
+
+    const formattedDate = `${year}-${month}-${day}`;
     axios.get('http://localhost:3000/meals/summary', { params: { days, user_id: user.uid } })
       .then(response => {
+
         const data1 = response.data;
         // Format the data for the chart
         axios.get('http://localhost:3000/exercise/summary', { params: { days, user_id: user.uid } })
@@ -90,7 +98,9 @@ const Summary = ({ user, setUser, currentUser, handleCreateUser }) => {
     day: 'numeric',
   });
 
-  useEffect(handleGetCaloriesIntake, [days])
+  useEffect(handleGetCaloriesIntake, [days]);
+  useEffect(() => {  console.log("Update value changed");
+  handleGetCaloriesIntake()}, [update]);
 
   return (
     <View style={styles.container}>
@@ -120,7 +130,7 @@ const Summary = ({ user, setUser, currentUser, handleCreateUser }) => {
           <Text style={[styles.showText, days === 30 && styles.selected]}>last 30 days</Text>
         </TouchableOpacity>
       </View>
-      {chartData &&
+      {(chartData && chartData.datasets[0].data.length > 0) &&
         <LineChart
           data={chartData}
           width={350}
@@ -138,7 +148,7 @@ const Summary = ({ user, setUser, currentUser, handleCreateUser }) => {
               borderRadius: 16
             },
             propsForDots: {
-              r: "3",
+              r: days === 7 ? '6' : '3',
               // strokeWidth: "2",
               // stroke: "#ffa726"
             }
@@ -157,10 +167,10 @@ const Summary = ({ user, setUser, currentUser, handleCreateUser }) => {
 
       <Text style={{ fontSize: 25, color: 'white', fontWeight: 'bold' }}>Suggestion </Text>
 
-      {/* <View style={styles.suggestionContainer}>
-      {chartData ?    <Text style={styles.suggestionText}> Hey there! I'm Calor, your personal calories counselor. Just tell me what you eat and do, and I'll help you stay on track with your health goals. Let's get started! </Text> : <Text style={styles.suggestionText}>I saw you've been eating a ton of burgers lately. How about trying a veggie stir-fry or something?</Text>}
+      <View style={styles.suggestionContainer}>
+      {(chartData && chartData.datasets[0].data.length <= 4)  ?    <Text style={styles.suggestionText}> Hey there! I'm Calor, your personal calories counselor. Just tell me what you eat and do, and I'll help you stay on track with your health goals. Let's get started! </Text> : <Text style={styles.suggestionText}>I saw you've been eating a ton of burgers lately. How about trying a veggie stir-fry or something?</Text>}
 
-      </View> */}
+      </View>
 
       <Modal visible={showProfileModal} animationType="slide">
         <ProfileModal user={user} setUser={setUser} toggleProfileModal={toggleProfileModal} handleCreateUser={handleCreateUser} />
@@ -241,7 +251,7 @@ const styles = StyleSheet.create({
     width: 16,
     height: 16,
     marginRight: 4,
-    marginLeft:70
+    marginLeft: 70
   },
   legendText: {
     color: '#FFFFFF',

@@ -4,7 +4,7 @@ import { VictoryPie, VictoryLabel } from 'victory-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import axios from 'axios';
 
-const Meal = ({ user }) => {
+const Meal = ({ user, setUpdate }) => {
   // const colors = ['#F44336', '#2196F3', '#FFEB3B', '#4CAF50', '#FF9800'];
   const colors = ['#F66D44', '#FEAE65', '#E6F69D', '#AADEA7', '#64C2A6', '#2D87BB'];
   const displayNumber = 5;
@@ -44,6 +44,7 @@ const Meal = ({ user }) => {
         // Clear the input text
         setInputText('');
         handleGetMeals();
+        setUpdate(prevState => !prevState);
       })
       .catch(error => {
         console.error(error);
@@ -72,11 +73,6 @@ const Meal = ({ user }) => {
       </View>
       <View style={styles.promptContainer}>
         <Text style={styles.promptText}>Tell me what did you eat today?</Text>
-        {/* <MaterialCommunityIcons
-          style={styles.micIcon}
-          name="chat-processing-outline"
-          color={'black'}
-          size={40} /> */}
       </View>
 
       <View style={styles.inputContainer}>

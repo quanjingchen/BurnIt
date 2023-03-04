@@ -4,7 +4,7 @@ import { VictoryPie, VictoryLabel } from 'victory-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import axios from 'axios';
 
-const Exercise = ({ user }) => {
+const Exercise = ({ user, setUpdate }) => {
   const colors = ['#2D87BB', '#64C2A6','#AADEA7','#E6F69D', '#FEAE65', '#F66D44'];
   const displayNumber = 5;
   const [inputText, setInputText] = useState('');
@@ -42,6 +42,7 @@ const Exercise = ({ user }) => {
         // Clear the input text
         setInputText('');
         handleGetExercise();
+        setUpdate(prevState => !prevState);
       })
       .catch(error => {
         console.error(error);

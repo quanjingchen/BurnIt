@@ -22,6 +22,8 @@ const Home = () => {
     height_cm: 160,
     age: 30,
   });
+  const [update, setUpdate] = useState(true);
+
 
   const handleGetUser = () => {
     const uid = currentUser.uid;
@@ -74,7 +76,7 @@ const Home = () => {
           ),
         }}
       >
-        {(props) => <Summary {...props} user={user} setUser={setUser} currentUser={currentUser} handleCreateUser={handleCreateUser}/>}
+        {(props) => <Summary {...props} user={user} setUser={setUser} currentUser={currentUser} update={update} handleCreateUser={handleCreateUser}/>}
       </Tab.Screen>
 
       <Tab.Screen
@@ -86,7 +88,7 @@ const Home = () => {
           ),
         }}
       >
-          {(props) => <Meal {...props} user={user}/>}
+          {(props) => <Meal {...props} user={user} setUpdate={setUpdate}/>}
       </Tab.Screen>
 
       <Tab.Screen
@@ -98,7 +100,7 @@ const Home = () => {
           ),
         }}
       >
-        {(props) => <Exercise {...props} user={user}/>}
+        {(props) => <Exercise {...props} user={user} setUpdate={setUpdate}/>}
       </Tab.Screen>
 
     </Tab.Navigator>

@@ -3,8 +3,9 @@ var { Meal } = require('../db');
 
 function getRandomDate() {
   const currentDate = new Date();
+  const yesterday = new Date(currentDate.getTime() - (1 * 24 * 60 * 60 * 1000))
   const sevenDaysAgo = new Date(currentDate.getTime() - (30 * 24 * 60 * 60 * 1000));
-  return new Date(sevenDaysAgo.getTime() + Math.random() * (currentDate.getTime() - sevenDaysAgo.getTime()));
+  return new Date(sevenDaysAgo.getTime() + Math.random() * (yesterday.getTime() - sevenDaysAgo.getTime()));
 }
 
 // Generate random number between min and max
