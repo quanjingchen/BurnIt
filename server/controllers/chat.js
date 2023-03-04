@@ -10,8 +10,13 @@ module.exports = {
     const { user_id } = req.query;
     const data1 = await models.meals.getMealCaloriesByDay(user_id);
     const data2 = await models.exercise.getExerciseCaloriesByDay(user_id);
-    if (data1.length <= 1 && data2.length <= 1) {
+    if (data1.length === 0 && data2.length === 0) {
+      res.status(200).json(`Hey there! I'm Calor, your personal calories counselor. Just tell me what you eat and do, and I'll help you stay on track with your health goals. Let's get started!`);
+      return;
+    }
+    if (data1.length < 1 || data2.length < 1) {
       res.status(200).json('Hey, I need more data to give better suggestions. What else did you have for meals and exercise?');
+      return;
     }
     const prompt = `Imagine you're a hilarious personal calorie consoler. I'll give you my meal and exercise data and you give one suggestion in 20 words or less with cute emoji. No formalities! Here is my meal data for the last few days, ${JSON.stringify(data1)}, and my activity data, ${JSON.stringify(data2)}`;
       // console.log(prompt);

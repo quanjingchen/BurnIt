@@ -10,16 +10,18 @@
 \deftab720
 \pard\pardeftab720\partightenfactor0
 
-\f0\fs24 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\f0\fs48 \cf2 \cb3 \expnd0\expndtw0\kerning0
 \outl0\strokewidth0 \strokec2 for lunch, I had a burger, noodle, Coke, chips, two slices of bacon \
-\
 \pard\pardeftab720\partightenfactor0
-\cf4 \cb5 \outl0\strokewidth0 for lunch, I had a burger, chips, and  orange juice\
-For dinner, I had rice and coke\
+\cf4 \cb5 \outl0\strokewidth0 For dinner, I had rice and coke\
+\pard\pardeftab720\partightenfactor0
+\cf4 \cb5 For dinner, I had instant noodles and orange juice and a piece of cake\cf4 \cb5 \
 \pard\pardeftab720\partightenfactor0
 \cf2 \cb3 \outl0\strokewidth0 \strokec2 \
-For dinner, I had instant noodles and sparkling water and a piece of cake\
-\
+\pard\pardeftab720\partightenfactor0
+\cf4 \cb5 \outl0\strokewidth0 for lunch, I had a burger, chips, and  coke\
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb3 \outl0\strokewidth0 \strokec2 \
 \pard\pardeftab720\partightenfactor0
 \cf2 I ran for 2 miles, walked two hours,\
 I jogged for 4 miles\cf0 \cb1 \strokec6 \
@@ -27,7 +29,7 @@ I jogged for 4 miles\cf0 \cb1 \strokec6 \
 \cf0 \
 \pard\pardeftab720\partightenfactor0
 
-\f1\fs28 \cf7 \cb6 \strokec7 db.meals.\cf8 \strokec8 aggregate\cf7 \strokec7 ([\
+\f1 \cf7 \cb6 \strokec7 db.meals.\cf8 \strokec8 aggregate\cf7 \strokec7 ([\
   \{ \cf9 \strokec9 $group\cf7 \strokec7 : \{ \cf9 \strokec9 _id\cf7 \strokec7 : \cf10 \strokec10 "$food_name"\cf7 \strokec7 , \cf9 \strokec9 totalCalories\cf7 \strokec7 : \{ \cf9 \strokec9 $sum\cf7 \strokec7 : \cf10 \strokec10 "$nf_calories"\cf7 \strokec7  \} \} \},\
   \{ \cf9 \strokec9 $project\cf7 \strokec7 : \{ \cf9 \strokec9 x\cf7 \strokec7 : \cf10 \strokec10 "$_id"\cf7 \strokec7 , \cf9 \strokec9 y\cf7 \strokec7 : \cf10 \strokec10 "$totalCalories"\cf7 \strokec7 , \cf9 \strokec9 _id\cf7 \strokec7 : \cf9 \strokec9 0\cf7 \strokec7  \} \}\
 ])}
