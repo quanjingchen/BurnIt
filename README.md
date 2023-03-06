@@ -32,7 +32,7 @@
         <li>Displays a summary of the user's calorie intake and outtake.</li>
         <li>Uses ChatGPT gpt-3.5-turbo to generate a quick and personalized suggestion on user's calorie intake and physical activity.</li>
         <li>Includes a date selector that allows the user to choose to display last 7 days or last 30 days.</li>
-        <li>Includes a chart or graph that visualizes the user's calorie intake and outtake over time.</li>
+        <li>Includes a line chart that visualizes the user's calorie intake and outtake over time.</li>
         <li>Clicking on the profile avatar will open a modal that allows the user to edit their profile information.</li>  
       </ul>
     </td>
