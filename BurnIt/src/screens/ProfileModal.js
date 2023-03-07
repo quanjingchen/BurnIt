@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-const ProfileModal = ({ user, setUser, toggleProfileModal, handleCreateUser}) => {
+const ProfileModal = ({ user, setUser, toggleProfileModal, handleCreateUser }) => {
   const [name, setName] = useState(user.name);
   const [gender, setGender] = useState(user.gender);
   const [weight, setWeight] = useState(user.weight_kg.toString());
@@ -46,12 +47,12 @@ const ProfileModal = ({ user, setUser, toggleProfileModal, handleCreateUser}) =>
           <Button
             title="Female"
             onPress={() => handleGenderChange('female')}
-            color={gender === 'female' ? '#F66D44' : '#000000'}
+            color={gender === 'female' ? '#ff69b4' : '#000000'}
           />
           <Button
             title="Male"
             onPress={() => handleGenderChange('male')}
-            color={gender === 'male' ? '#2D87BB' : '#000000'}
+            color={gender === 'male' ? '#008000' : '#000000'}
           />
         </View>
 
@@ -64,8 +65,9 @@ const ProfileModal = ({ user, setUser, toggleProfileModal, handleCreateUser}) =>
         <Text style={styles.label}>Age:</Text>
         <TextInput style={styles.input} value={age} onChangeText={setAge} />
         <View style={styles.uploadContainer}>
-          <TouchableOpacity onPress={handleUploadPhoto}>
-            <Text style={styles.uploadButtonText}>Upload Photo</Text>
+          <TouchableOpacity onPress={handleUploadPhoto} style={styles.uploadButton}>
+            <MaterialCommunityIcons name="camera-outline" size={24} color="black" />
+            <Text style={styles.uploadText}>Upload</Text>
           </TouchableOpacity>
         </View>
 
@@ -119,18 +121,21 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   uploadContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical: 20,
+  },
+  uploadButton: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-evenly',
-    width: '100%',
-    marginTop: 10,
-    marginBottom: 10,
-
+    // backgroundColor: '#eee',
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: 5,
   },
-  uploadButtonText: {
-    color: 'blue',
-    textDecorationLine: 'underline',
-  }
+  uploadText: {
+    marginLeft: 10,
+  },
 });
 
 export default ProfileModal;
