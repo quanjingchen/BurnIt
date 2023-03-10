@@ -13,10 +13,6 @@
 </h1>
 
 
-## See how it works
-View the demo video [here](https://www.youtube.com/watch?v=QCMdGffHX-E)
-
-
 ## Technologies used
 
 ![React Native](https://img.shields.io/badge/react_native-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
@@ -28,13 +24,16 @@ View the demo video [here](https://www.youtube.com/watch?v=QCMdGffHX-E)
 ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
 ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
 
+## See how it works
+View the demo video [here](https://www.youtube.com/watch?v=QCMdGffHX-E)
+
+
 ## Authentication and Login
 
 <ul>
   <li>Uses Firebase for authentication</li>
   <li>Allows users to log in with their Facebook account</li>
 </ul>
-
 
 
 ## Summary Screen
