@@ -1,16 +1,23 @@
 import { initializeApp } from 'firebase/app';
+import {REACT_APP_FIREBASE_API_KEY, REACT_APP_FIREBASE_AUTH_DOMAIN, REACT_APP_FIREBASE_PROJECT_ID, REACT_APP_FIREBASE_STORAGE_BUCKET, REACT_APP_FIREBASE_SENDER_ID, REACT_APP_FIREBASE_APP_ID} from "@env"
+import { getAuth } from 'firebase/auth';
 
+// import dotenv from 'dotenv';
+// dotenv.config();
 // Initialize Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyBC3ct8Xykxv-pD2-qgBOf41Mq0rF1fBYM",
-  authDomain: "burnit-78c25.firebaseapp.com",
-  projectId: "burnit-78c25",
-  storageBucket: "burnit-78c25.appspot.com",
-  messagingSenderId: "1083588385447",
-  appId: "1:1083588385447:web:0e2c90c99d2d0bb55c9982",
+  apiKey: REACT_APP_FIREBASE_API_KEY,
+  authDomain: REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: REACT_APP_FIREBASE_SENDER_ID,
+  appId: REACT_APP_FIREBASE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
-export default app;
+// export default app;
+const auth = getAuth(app);
+export default auth;
+
 // For more information on how to access Firebase in your project,
 // see the Firebase documentation: https://firebase.google.com/docs/web/setup#access-firebase

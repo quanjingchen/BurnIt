@@ -1,22 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { useFocusEffect } from '@react-navigation/native';
+
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Summary from './Summary.js';
 import Meal from './Meal.js';
 import Exercise from './Exercise.js';
 import { getAuth } from 'firebase/auth';
-import app from '../../firebaseSetup';
+import auth from '../../firebaseSetup';
 import axios from 'axios';
 
 const Tab = createMaterialBottomTabNavigator();
 
 const Home = () => {
-  const auth = getAuth(app);
+  // const auth = getAuth(app);
   const currentUser = auth.currentUser;
   const [user, setUser] = useState({
     uid: currentUser.uid,
     name: currentUser.displayName,
+    profile_url:currentUser.photoURL,
     gender: 'female',
     weight_kg: 50,
     height_cm: 160,
@@ -33,10 +36,12 @@ const Home = () => {
         const userFromServer = response.data;
         // console.log('userFromServer._id: ',  userFromServer)
         if (userFromServer) {
+          console.log(userFromServer.profile_url);
           setUser({
             ...user,
             name: userFromServer.name,
             gender: userFromServer.gender,
+            profile_url: userFromServer.profile_url,
             weight_kg: userFromServer.weight_kg,
             height_cm: userFromServer.height_cm,
             age: userFromServer.age,
@@ -56,7 +61,11 @@ const Home = () => {
     .catch(err => console.error('ERROR WITH POSTING DATA', err))
   };
   useEffect(() => {handleGetUser()}, []);
-
+  // useFocusEffect(
+  //   React.useCallback(() => {
+  //     handleGetUser();
+  //   }, [])
+  // );
 
   return (
     <Tab.Navigator

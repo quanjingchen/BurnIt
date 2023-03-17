@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, Button, TextInput, Modal, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput, Modal, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { Avatar } from 'react-native-elements';
 import app from '../../firebaseSetup';
 import ProfileModal from './ProfileModal.js';
@@ -12,11 +12,13 @@ const Summary = ({ user, setUser, currentUser, handleCreateUser, update }) => {
   const [showProfileModal, setShowProfileModal] = useState(false);
   const [days, setDays] = useState(7); // default to last 7 days
   const [chartData, setChartData] = useState();
+  const [loading, setLoading] = React.useState(false);
   const [suggestion, setSuggestion] = useState(`Hey there! I'm Calor, your personal calories counselor. Just tell me what you eat and do, and I'll help you stay on track with your health goals. Let's get started!`);
 
   const postChatGPT = () => {
+    setLoading(true);
     axios.get('http://localhost:3000/meals/suggestion', { params: { user_id: user.uid } })
-      .then(result => setSuggestion(result.data.replace(/["\n]/g, '')))
+      .then(result => { setLoading(false); setSuggestion(result.data.replace(/["\n]/g, '')) })
       .catch(err => console.error(err))
   };
 
@@ -123,7 +125,7 @@ const Summary = ({ user, setUser, currentUser, handleCreateUser, update }) => {
         <View style={styles.userIconContainer}>
           <Avatar
             rounded
-            source={{ uri: currentUser.photoURL }}
+            source={{ uri: user.profile_url }}
             size={50}
             containerStyle={{ marginRight: 10 }}
             onPress={toggleProfileModal}
@@ -177,12 +179,16 @@ const Summary = ({ user, setUser, currentUser, handleCreateUser, update }) => {
       </View>
 
       <Text style={{ fontSize: 25, color: 'white', fontWeight: 'bold' }}>Suggestion </Text>
-
-      <View style={styles.suggestionContainer}>
-        <TouchableOpacity onPress={postChatGPT}>
-          <Text style={[styles.suggestionText, { color: 'white' }]}>{suggestion}</Text>
-        </TouchableOpacity>
-      </View>
+      {loading ?
+        <View style={[styles.suggestionContainer, { backgroundColor: 'black', alignItems: 'center'}]}>
+        <ActivityIndicator size="large" />
+        </View>
+        : <View style={styles.suggestionContainer}>
+          <TouchableOpacity onPress={postChatGPT}>
+            <Text style={[styles.suggestionText, { color: 'white' }]}>{suggestion}</Text>
+          </TouchableOpacity>
+        </View>
+      }
 
       <Modal visible={showProfileModal} animationType="slide">
         <ProfileModal user={user} setUser={setUser} toggleProfileModal={toggleProfileModal} handleCreateUser={handleCreateUser} />
@@ -270,7 +276,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginLeft: 8
   },
-
   suggestionContainer: {
     width: 350,
     height: 100,
@@ -280,14 +285,12 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     paddingRight: 10,
     paddingLeft: 10,
-
   },
   suggestionText: {
     color: '#FFFFFF',
     fontSize: 16,
     // fontWeight: 'bold',
     lineHeight: 24
-
   }
 });
 
