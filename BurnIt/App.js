@@ -25,7 +25,11 @@ export default function App() {
     <UserContext.Provider value={{ login, setLogin }}>
       <NavigationContainer>
         <Stack.Navigator>
-        <Stack.Screen name="SignIn" component={SignInScreen} />
+        <Stack.Screen
+        name="SignIn"
+        component={SignInScreen}
+        options={{ headerShown: false }}
+        />
           <Stack.Screen
             name="Home"
             component={Home}

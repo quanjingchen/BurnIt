@@ -1,8 +1,13 @@
 import React from 'react';
+import { Svg, Path } from 'react-native-svg';
+
 import { getAuth, FacebookAuthProvider, signInWithCredential } from 'firebase/auth';
-import { LoginManager, AccessToken } from 'react-native-fbsdk-next';
+import { LoginManager, AccessToken, LoginButton } from 'react-native-fbsdk-next';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+
 import app from '../../firebaseSetup';
 import auth from '../../firebaseSetup';
+// import { GoogleSignin, GoogleSigninButton, statusCodes } from '@react-native-google-signin/google-signin';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -36,14 +41,30 @@ const SignInScreen = () => {
   const SignInWithGoogle = () => { };
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center' }}>
-      <Button title='Sign in with Facebook' onPress={SignInWithFB}/>
-      <GoogleSigninButton
-    style={{ width: 192, height: 48 }}
-    size={GoogleSigninButton.Size.Wide}
-    color={GoogleSigninButton.Color.Light}
-    onPress={SignInWithGoogle}
-  />
+<View style={{ alignItems: 'center', justifyContent: 'center', marginTop: 200 }}>
+      {/* <Button title='Sign in with Facebook' onPress={SignInWithFB} /> */}
+      <Svg width="100" height="100">
+        <Path
+          d="M50,0 L100,50 L50,100 L0,50 Z"
+          fill="red"
+        />
+      </Svg>
+      <Text>Welcome to BurnIt!</Text>
+      <LoginButton
+        onLoginFinished={(error, result) => {
+          if (error) {
+            console.log('Login failed with error:', error);
+          } else if (result.isCancelled) {
+            console.log('Login was cancelled');
+          } else {
+            SignInWithFB();
+          }
+        }}
+        onLogoutFinished={() => console.log('User logged out')}
+      />
+      {/* <View style={{ position: 'absolute', left: 12 }}>
+        <Icon name='facebook' size={30} color='#4267B2' />
+      </View> */}
     </View>
   );
 }
