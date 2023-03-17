@@ -84,3 +84,5 @@ node_modules/
 coverage/
 *.csv
 # @end expo-cli
+
+ios/*

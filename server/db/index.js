@@ -14,6 +14,7 @@ const userSchema = new mongoose.Schema({
     unique: true
   },
   name: String,
+  profile_url: String,
   gender: { type: String, enum: ['male', 'female'], default: 'female' },
   weight_kg: { type: Number, default: 50 },
   height_cm: { type: Number, default: 160 },

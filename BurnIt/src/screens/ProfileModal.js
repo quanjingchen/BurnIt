@@ -93,12 +93,17 @@ const ProfileModal = ({ user, setUser, toggleProfileModal, handleCreateUser }) =
           <Button
             title="Female"
             onPress={() => handleGenderChange('female')}
-            color={gender === 'female' ? '#ff69b4' : '#000000'}
+            color={gender === 'female' ? 'grey' : 'white'}
           />
           <Button
             title="Male"
             onPress={() => handleGenderChange('male')}
-            color={gender === 'male' ? '#008000' : '#000000'}
+            color={gender === 'male' ? 'grey' : 'white'}
+          />
+          <Button
+            title="Other"
+            onPress={() => handleGenderChange('other')}
+            color={gender === 'other' ? 'grey' : 'white'}
           />
         </View>
         <Text style={styles.label}>Weight (kg):</Text>
@@ -109,7 +114,7 @@ const ProfileModal = ({ user, setUser, toggleProfileModal, handleCreateUser }) =
         <TextInput style={styles.input} value={age} onChangeText={setAge} />
         <View style={styles.uploadContainer}>
           <TouchableOpacity onPress={handleUploadPhoto} style={styles.uploadButton}>
-            <MaterialCommunityIcons name="camera-outline" size={24} color="black" />
+            <MaterialCommunityIcons name="camera-outline" size={24} color="white" />
             <Text style={styles.uploadText}>Upload</Text>
           </TouchableOpacity>
         </View>
@@ -122,7 +127,7 @@ const ProfileModal = ({ user, setUser, toggleProfileModal, handleCreateUser }) =
           <Button title="Save" onPress={handleSave} />
         </View>
         <View style={styles.buttonContainer}>
-          <Button title="Log out" onPress={handleLogOut} />
+          <Button title="Log out" onPress={handleLogOut} color="#FF0000" />
         </View>
       </View>
     </View>
@@ -137,8 +142,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   innerContainer: {
-    backgroundColor: '#FFF',
+    backgroundColor: 'black',
     padding: 20,
+    paddingTop:30,
     width: '80%',
     borderRadius: 10,
   },
@@ -146,11 +152,14 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 10,
+    color: '#FFF'
   },
   label: {
     fontSize: 16,
     fontWeight: 'bold',
     marginTop: 10,
+    marginBottom:7,
+    color: '#FFF'
   },
   input: {
     height: 40,
@@ -159,13 +168,13 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 5,
     marginBottom: 10,
+    color: 'white'
   },
   buttonContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-around',
     width: '100%',
-    marginTop: 10,
   },
   uploadContainer: {
     alignItems: 'center',
@@ -182,6 +191,8 @@ const styles = StyleSheet.create({
   },
   uploadText: {
     marginLeft: 10,
+    color: '#FFF'
+
   },
   postPhoto: {
     height: 50,

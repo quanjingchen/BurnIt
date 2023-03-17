@@ -26,4 +26,8 @@ for (let i = 0; i < 100; i++) {
   });
 }
 
-Meal.insertMany(meals);
+Meal.insertMany(meals)
+.then(() => {
+  console.log('All dummy data created successfully');
+  process.exit(0);
+})

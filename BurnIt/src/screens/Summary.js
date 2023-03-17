@@ -127,7 +127,7 @@ const Summary = ({ user, setUser, currentUser, handleCreateUser, update }) => {
             rounded
             source={{ uri: user.profile_url }}
             size={50}
-            containerStyle={{ marginRight: 10 }}
+            containerStyle={{ marginRight: 10, borderWidth: 3, borderColor: 'white' }}
             onPress={toggleProfileModal}
           />
           <Text style={styles.userNameText}>{user.name.split(' ')[0]}</Text>
@@ -180,8 +180,8 @@ const Summary = ({ user, setUser, currentUser, handleCreateUser, update }) => {
 
       <Text style={{ fontSize: 25, color: 'white', fontWeight: 'bold' }}>Suggestion </Text>
       {loading ?
-        <View style={[styles.suggestionContainer, { backgroundColor: 'black', alignItems: 'center'}]}>
-        <ActivityIndicator size="large" />
+        <View style={[styles.suggestionContainer, { backgroundColor: 'black', alignItems: 'center', justifyContent:'center' }]}>
+          <ActivityIndicator size="large" />
         </View>
         : <View style={styles.suggestionContainer}>
           <TouchableOpacity onPress={postChatGPT}>
@@ -209,6 +209,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     backgroundColor: "black",
     padding: 20,
+    paddingTop: 50,
     color: 'white'
   },
   topContainer: {
@@ -243,7 +244,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginTop: 10,
+    marginTop: 20,
   },
 
   showText: {
@@ -263,7 +264,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 20,
-    marginBottom: 20
+    marginBottom: 30
   },
   legendItem: {
     width: 16,
@@ -278,8 +279,8 @@ const styles = StyleSheet.create({
   },
   suggestionContainer: {
     width: 350,
-    height: 100,
-    marginTop: 12,
+    height: 120,
+    marginTop: 22,
     backgroundColor: '#2C3639',
     borderRadius: 16,
     paddingTop: 15,

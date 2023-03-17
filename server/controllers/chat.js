@@ -18,7 +18,7 @@ module.exports = {
       res.status(200).json('Hey, I need more data to give better suggestions. What else did you have for meals and exercise?');
       return;
     }
-    const prompt = `Imagine you're a hilarious personal calorie consoler. I'll give you my meal and exercise data and you give one suggestion in 20 words or less with cute emoji. No formalities! Here is my meal data for the last few days, ${JSON.stringify(data1)}, and my activity data, ${JSON.stringify(data2)}`;
+    const prompt = `Imagine you're a hilarious personal calorie consoler. I'll give you my meal and exercise data and you give one suggestion in 30 words or less with cute emoji. No formalities! Here is my meal data for the last few days, ${JSON.stringify(data1)}, and my activity data, ${JSON.stringify(data2)}`;
       // console.log(prompt);
       var data = {
       "messages": [{"role": "user", "content": prompt}],

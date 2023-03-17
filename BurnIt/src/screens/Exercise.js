@@ -90,7 +90,7 @@ const Exercise = ({ user, setUpdate }) => {
           multiline={true}
           value={inputText}
           onChangeText={setInputText}
-          placeholder="e.g., I ran for 2 miles and cooked dinner"
+          placeholder="e.g., I ran for 2 miles and cooked dinner (Add specific details for accurate estimation)"
           placeholderTextColor="grey"
         />
         <View style={styles.buttonContainer}>
@@ -107,6 +107,7 @@ const Exercise = ({ user, setUpdate }) => {
 
 export default Exercise;
 
+
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'black',
@@ -114,10 +115,11 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 10
+    padding: 10,
+    paddingBottom:20
   },
   headerText: {
-    marginTop: 20,
+    marginTop: 50,
     textAlign: 'center',
     fontSize: 24,
     fontWeight:'bold',
@@ -132,8 +134,9 @@ const styles = StyleSheet.create({
   promptText: {
     fontSize: 18,
     marginRight: 15,
+    marginBottom:10,
     color: 'white',
-    fontWeight:'bold'
+    fontWeight: 'bold'
   },
   inputContainer: {
     flexDirection: 'row',
@@ -144,7 +147,7 @@ const styles = StyleSheet.create({
   input: {
     fontSize: 16,
     flex: 1,
-    height: 80,
+    height: 100,
     borderColor: '#2C3639',
     borderWidth: 1,
     borderRadius: 5,

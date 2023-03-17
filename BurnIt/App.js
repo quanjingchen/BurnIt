@@ -25,27 +25,16 @@ export default function App() {
     <UserContext.Provider value={{ login, setLogin }}>
       <NavigationContainer>
         <Stack.Navigator>
-        <Stack.Screen
-        name="SignIn"
-        component={SignInScreen}
-        options={{ headerShown: false }}
-        />
+          <Stack.Screen
+            name="SignIn"
+            component={SignInScreen}
+            options={{ headerShown: false }}
+          />
           <Stack.Screen
             name="Home"
             component={Home}
-            options={{
-              title: 'BurnIt',
-              headerTitle: null,
-              headerLeft: () => null,
-              headerTitleStyle: {
-                fontSize: 24,
-                fontWeight: 'bold'
-              },
-              headerStyle: {
-                backgroundColor: 'black',
-              },
-              headerTintColor: 'white'
-            }} />
+            options={{ headerShown: false }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </UserContext.Provider>
@@ -53,4 +42,17 @@ export default function App() {
   );
 }
 
+// options={{
+//   title: 'BurnIt',
+//   headerTitle: null,
+//   headerLeft: () => null,
+//   headerTitleStyle: {
+//     fontSize: 24,
+//     fontWeight: 'bold'
+//   },
+//   headerStyle: {
+//     backgroundColor: 'black',
+//   },
+//   headerTintColor: 'white'
+// }}
 

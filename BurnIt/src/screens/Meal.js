@@ -87,8 +87,9 @@ const Meal = ({ user, setUpdate }) => {
           multiline={true}
           value={inputText}
           onChangeText={setInputText}
-          placeholder="e.g., for breakfast, I had two eggs, two slices of bacon, and coffee "
+          placeholder="e.g., for breakfast, I had two eggs, two slices of bacon, and a cup of coffee. (Add specific details for accurate estimation)"
           placeholderTextColor="grey"
+
         />
         <View style={styles.buttonContainer}>
           <Button
@@ -112,10 +113,11 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 10
+    padding: 10,
+    paddingBottom:20
   },
   headerText: {
-    marginTop: 20,
+    marginTop: 50,
     textAlign: 'center',
     fontSize: 24,
     fontWeight:'bold',
@@ -130,6 +132,7 @@ const styles = StyleSheet.create({
   promptText: {
     fontSize: 18,
     marginRight: 15,
+    marginBottom:10,
     color: 'white',
     fontWeight: 'bold'
   },
@@ -142,7 +145,7 @@ const styles = StyleSheet.create({
   input: {
     fontSize: 16,
     flex: 1,
-    height: 80,
+    height: 100,
     borderColor: '#2C3639',
     borderWidth: 1,
     borderRadius: 5,
