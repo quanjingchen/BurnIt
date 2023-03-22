@@ -39,13 +39,12 @@ View the demo video [here](https://www.youtube.com/watch?v=QCMdGffHX-E)
 
 
 ## Authentication and Login
-
-
 <img width="200" alt="product overview sample" src="https://user-images.githubusercontent.com/19434669/227030782-09274246-e384-4669-8bd9-3fd7e76e6e24.png">
-      <ul>
-        <li>Uses Firebase for authentication.</li>
-        <li>Allows users to log in with their social media accounts.</li>
-      </ul>
+
+<ul>
+  <li>Uses Firebase for authentication.</li>
+  <li>Allows users to log in with their social media accounts.</li>
+</ul>
 
 
 ## Summary Screen
