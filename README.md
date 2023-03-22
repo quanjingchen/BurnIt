@@ -30,17 +30,25 @@ View the demo video [here](https://www.youtube.com/watch?v=QCMdGffHX-E)
 
 ## Authentication and Login
 
-<ul>
-  <li>Uses Firebase for authentication</li>
-  <li>Allows users to log in with their Facebook account</li>
-</ul>
-
+<table>
+  <tr>
+    <td><img src="https://user-images.githubusercontent.com/19434669/227030782-09274246-e384-4669-8bd9-3fd7e76e6e24.png" alt="Summary screen" width="400" style="margin-right: 20px;"></td>
+    <td>
+      <ul>
+        <li>Uses Firebase for authentication.</li>
+        <li>Allows users to log in with their social media accounts.</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
 ## Summary Screen
 
 <table>
   <tr>
-    <td><img src="https://user-images.githubusercontent.com/19434669/223033513-8943f7f9-2a90-4ecc-bdef-2baa9fb54f6d.png" alt="Summary screen" width="400" style="margin-right: 20px;"></td>
+    <td><img src="https://user-images.githubusercontent.com/19434669/227030998-39153b30-2593-4092-850c-c541481a4338.png" alt="Summary screen" width="400" style="margin-right: 20px;">
+    <img src="https://user-images.githubusercontent.com/19434669/227031351-11634978-96bc-4cf4-9232-b99955ea11d9.png" alt="Summary screen" width="400" style="margin-right: 20px;">
+    </td>
     <td>
       <ul>
         <li>Displays a summary of the user's calorie intake and outtake.</li>
@@ -57,7 +65,7 @@ View the demo video [here](https://www.youtube.com/watch?v=QCMdGffHX-E)
 
 <table>
   <tr>
-    <td><img src="https://user-images.githubusercontent.com/19434669/223036250-c9fb2b69-a2d6-4ff5-9f95-3b3e57d376d5.png" alt="Summary screen" width="400" /></td>
+    <td><img src="https://user-images.githubusercontent.com/19434669/227031136-89b32efe-ec33-4521-a756-20ed0a9380ef.png" alt="Summary screen" width="400" /></td>
     <td>
       <ul>
         <li>Allows the user to log their meals and track their calorie intake.</li>
@@ -76,7 +84,7 @@ View the demo video [here](https://www.youtube.com/watch?v=QCMdGffHX-E)
 
 <table>
   <tr>
-    <td><img src="https://user-images.githubusercontent.com/19434669/223045581-2900cc77-28c7-4c73-a251-0b45857f5324.png" alt="Summary screen" width="400" /></td>
+    <td><img src="https://user-images.githubusercontent.com/19434669/227031196-189cecae-e1ce-45a4-b50b-58e103dac7d1.png" alt="Summary screen" width="400" /></td>
     <td>
       <ul>
         <li>Allows the user to log their exercise and track their calorie outtake.</li>
