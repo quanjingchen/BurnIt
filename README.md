@@ -6,7 +6,7 @@
       <br>
     </h4>
     <h4 align="center">
-        <i>Empowed by ChatGPT gpt-3.5-turbo and Nutritionix NLP API</i>
+        <i>Empowed by GPT gpt-3.5-turbo and Nutritionix NLP API</i>
       <br>
     </h4>
     <br>
@@ -55,7 +55,7 @@ View the demo video [here](https://www.youtube.com/watch?v=QCMdGffHX-E)
 
 <ul>
   <li>Displays a summary of the user's calorie intake and outtake.</li>
-  <li>Uses ChatGPT gpt-3.5-turbo to generate a quick and personalized suggestion on user's calorie intake and physical activity.</li>
+  <li>Uses GPT gpt-3.5-turbo to generate a quick and personalized suggestion on user's calorie intake and physical activity.</li>
   <li>Includes a date selector that allows the user to choose to display last 7 days or last 30 days.</li>
   <li>Includes a line chart that visualizes the user's calorie intake and outtake over time.</li>
   <li>Clicking on the profile avatar will open a modal that allows the user to edit their profile information and log out.</li>  
