@@ -9,7 +9,6 @@
     "plugins": [
       [
         "react-native-fbsdk-next",
-        "@react-native-google-signin/google-signin",
         {
           "appID": "2078961395828557",
           "clientToken": "67e5b931e038d1ad417edb67baa5f127",
@@ -27,17 +26,17 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "googleServicesFile": "./GoogleService-Info.plist",
-      "infoPlist": {
-        "SKAdNetworkItems": [
-          {
-            "SKAdNetworkIdentifier": "v9wttpbfk9.skadnetwork"
-          },
-          {
-            "SKAdNetworkIdentifier": "n38lu8286q.skadnetwork"
-          }
-        ]
-      },
+      // "googleServicesFile": "./GoogleService-Info.plist",
+      // "infoPlist": {
+      //   "SKAdNetworkItems": [
+      //     {
+      //       "SKAdNetworkIdentifier": "v9wttpbfk9.skadnetwork"
+      //     },
+      //     {
+      //       "SKAdNetworkIdentifier": "n38lu8286q.skadnetwork"
+      //     }
+      //   ]
+      // },
       "bundleIdentifier": "com.nana.burnit"
     },
     "android": {
