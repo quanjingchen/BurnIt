@@ -26,17 +26,16 @@
     ],
     "ios": {
       "supportsTablet": true,
-      // "googleServicesFile": "./GoogleService-Info.plist",
-      // "infoPlist": {
-      //   "SKAdNetworkItems": [
-      //     {
-      //       "SKAdNetworkIdentifier": "v9wttpbfk9.skadnetwork"
-      //     },
-      //     {
-      //       "SKAdNetworkIdentifier": "n38lu8286q.skadnetwork"
-      //     }
-      //   ]
-      // },
+      "infoPlist": {
+        "SKAdNetworkItems": [
+          {
+            "SKAdNetworkIdentifier": "v9wttpbfk9.skadnetwork"
+          },
+          {
+            "SKAdNetworkIdentifier": "n38lu8286q.skadnetwork"
+          }
+        ]
+      },
       "bundleIdentifier": "com.nana.burnit"
     },
     "android": {
@@ -53,3 +52,4 @@
     }
   }
 }
+
