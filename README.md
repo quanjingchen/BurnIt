@@ -6,7 +6,7 @@
       <br>
     </h4>
     <h4 align="center">
-        <i>Empowed by ChatGPT gpt-3.5-turbo and Nutritionix NLP API</i>
+        <i>Empowed by GPT gpt-3.5-turbo and Nutritionix NLP API</i>
       <br>
     </h4>
     <br>
@@ -27,65 +27,56 @@
 ## See how it works
 View the demo video [here](https://www.youtube.com/watch?v=QCMdGffHX-E)
 
+<div align="center">
+  
+<img width="180" alt="product overview sample" src="https://user-images.githubusercontent.com/19434669/227030782-09274246-e384-4669-8bd9-3fd7e76e6e24.png">
+<img width="180" alt="product overview sample" src="https://user-images.githubusercontent.com/19434669/227030998-39153b30-2593-4092-850c-c541481a4338.png">
+<img width="180" alt="product overview sample" src="https://user-images.githubusercontent.com/19434669/227031136-89b32efe-ec33-4521-a756-20ed0a9380ef.png">
+<img width="180" alt="product overview sample" src="https://user-images.githubusercontent.com/19434669/227031196-189cecae-e1ce-45a4-b50b-58e103dac7d1.png">
+  
+</div>
+
 
 ## Authentication and Login
+<img width="200" alt="product overview sample" src="https://user-images.githubusercontent.com/19434669/227030782-09274246-e384-4669-8bd9-3fd7e76e6e24.png">
 
 <ul>
-  <li>Uses Firebase for authentication</li>
-  <li>Allows users to log in with their Facebook account</li>
+  <li>Uses Firebase for authentication.</li>
+  <li>Allows users to log in with their social media accounts.</li>
 </ul>
 
 
 ## Summary Screen
+<div align="left">
+<img width="200" alt="product overview sample" src="https://user-images.githubusercontent.com/19434669/227030998-39153b30-2593-4092-850c-c541481a4338.png">
+<img width="200" alt="product overview sample" src="https://user-images.githubusercontent.com/19434669/227031351-11634978-96bc-4cf4-9232-b99955ea11d9.png">
+ </div>
 
-<table>
-  <tr>
-    <td><img src="https://user-images.githubusercontent.com/19434669/223033513-8943f7f9-2a90-4ecc-bdef-2baa9fb54f6d.png" alt="Summary screen" width="400" style="margin-right: 20px;"></td>
-    <td>
-      <ul>
-        <li>Displays a summary of the user's calorie intake and outtake.</li>
-        <li>Uses ChatGPT gpt-3.5-turbo to generate a quick and personalized suggestion on user's calorie intake and physical activity.</li>
-        <li>Includes a date selector that allows the user to choose to display last 7 days or last 30 days.</li>
-        <li>Includes a line chart that visualizes the user's calorie intake and outtake over time.</li>
-        <li>Clicking on the profile avatar will open a modal that allows the user to edit their profile information.</li>  
-      </ul>
-    </td>
-  </tr>
-</table>
+<ul>
+  <li>Displays a summary of the user's calorie intake and outtake.</li>
+  <li>Uses GPT gpt-3.5-turbo to generate a quick and personalized suggestion on user's calorie intake and physical activity.</li>
+  <li>Includes a date selector that allows the user to choose to display last 7 days or last 30 days.</li>
+  <li>Includes a line chart that visualizes the user's calorie intake and outtake over time.</li>
+  <li>Clicking on the profile avatar will open a modal that allows the user to edit their profile information and log out.</li>  
+</ul>
 
-## Meal Logging Screen
 
-<table>
-  <tr>
-    <td><img src="https://user-images.githubusercontent.com/19434669/223036250-c9fb2b69-a2d6-4ff5-9f95-3b3e57d376d5.png" alt="Summary screen" width="400" /></td>
-    <td>
-      <ul>
-        <li>Allows the user to log their meals and track their calorie intake.</li>
-        <li>Allows the user to enter the food items using natural language input.</li>
-        <li>Leverages the power of Nutritionix NLP API to calculate the calorie intake of the user's meals.</li>
-        <li>Displays the calorie content of each food item in a meal using a pie chart.</li>  
-        <li>Allows users to quickly and easily understand the proportion of calories contributed by each food item in their meal.</li>  
-      </ul>
-    </td>
-  </tr>
-</table>
+## Meal/Exercise Logging Screen
+<div align="left">
+<img width="200" alt="product overview sample" src="https://user-images.githubusercontent.com/19434669/227031136-89b32efe-ec33-4521-a756-20ed0a9380ef.png">
+<img width="200" alt="product overview sample" src="https://user-images.githubusercontent.com/19434669/227031196-189cecae-e1ce-45a4-b50b-58e103dac7d1.png">
+ </div>
+ 
+<ul>
+  <li>Allows the user to log their meals/exercise and track their calorie intake/outtake.</li>
+  <li>Allows the user to enter the food/activity items using natural language input.</li>
+  <li>Leverages the power of Nutritionix NLP API to calculate the calorie intake/outtake of the user's meals.</li>
+  <li>Displays the calorie content of each food/activity item in a meal using a pie chart.</li>  
+  <li>Allows users to quickly and easily understand the proportion of calories contributed by each food/activity item in their meal.</li>  
+</ul>
 
 
 
-## Exercise Logging Screen
 
-<table>
-  <tr>
-    <td><img src="https://user-images.githubusercontent.com/19434669/223045581-2900cc77-28c7-4c73-a251-0b45857f5324.png" alt="Summary screen" width="400" /></td>
-    <td>
-      <ul>
-        <li>Allows the user to log their exercise and track their calorie outtake.</li>
-        <li>Allows the user to enter the activities using natural language input.</li>
-        <li>Leverages the power of Nutritionix NLP API to calculate the calorie outtake of the user's exercise.</li>
-        <li>Displays the calorie outtake of each activity item using a pie chart.</li>  
-        <li>Allows users to quickly and easily understand the proportion of calories contributed by each activity.</li>  
-      </ul>
-    </td>
-  </tr>
-</table>
+
 
