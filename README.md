@@ -29,11 +29,10 @@ View the demo video [here](https://www.youtube.com/watch?v=QCMdGffHX-E)
 
 <div align="center">
   
-<img width="150" alt="product overview sample" src="https://user-images.githubusercontent.com/19434669/227030782-09274246-e384-4669-8bd9-3fd7e76e6e24.png">
-<img width="150" alt="product overview sample" src="https://user-images.githubusercontent.com/19434669/227030998-39153b30-2593-4092-850c-c541481a4338.png">
-<img width="150" alt="product overview sample" src="https://user-images.githubusercontent.com/19434669/227031351-11634978-96bc-4cf4-9232-b99955ea11d9.png">
-<img width="150" alt="product overview sample" src="https://user-images.githubusercontent.com/19434669/227031136-89b32efe-ec33-4521-a756-20ed0a9380ef.png">
-<img width="150" alt="product overview sample" src="https://user-images.githubusercontent.com/19434669/227031196-189cecae-e1ce-45a4-b50b-58e103dac7d1.png">
+<img width="180" alt="product overview sample" src="https://user-images.githubusercontent.com/19434669/227030782-09274246-e384-4669-8bd9-3fd7e76e6e24.png">
+<img width="180" alt="product overview sample" src="https://user-images.githubusercontent.com/19434669/227030998-39153b30-2593-4092-850c-c541481a4338.png">
+<img width="180" alt="product overview sample" src="https://user-images.githubusercontent.com/19434669/227031136-89b32efe-ec33-4521-a756-20ed0a9380ef.png">
+<img width="180" alt="product overview sample" src="https://user-images.githubusercontent.com/19434669/227031196-189cecae-e1ce-45a4-b50b-58e103dac7d1.png">
   
 </div>
 
