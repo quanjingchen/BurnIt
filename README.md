@@ -72,7 +72,7 @@ View the demo video [here](https://www.youtube.com/watch?v=McvzeZEbzJM)
   <li>Allows the user to enter the food/activity items using natural language input.</li>
   <li>Leverages the power of Nutritionix NLP API to calculate the calorie intake/outtake of the user's meals.</li>
   <li>Displays the calorie content of each food/activity item in a meal using a pie chart.</li>  
-  <li>Allows users to quickly and easily understand the proportion of calories contributed by each food/activity item in their meal.</li>  
+  <li>Allows users to quickly and easily understand the proportion of calories contributed by each food/activity item with the pie charts.</li>  
 </ul>
 
 
