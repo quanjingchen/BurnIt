@@ -6,7 +6,7 @@
       <br>
     </h4>
     <h4 align="center">
-        <i>Empowed by GPT gpt-3.5-turbo and Nutritionix NLP API</i>
+        <i>Empowed by OpenAI gpt-3.5-turbo and Nutritionix NLP API</i>
       <br>
     </h4>
     <br>
