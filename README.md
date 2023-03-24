@@ -25,7 +25,7 @@
 ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
 
 ## See how it works
-View the demo video [here](https://www.youtube.com/watch?v=QCMdGffHX-E)
+View the demo video [here](https://www.youtube.com/watch?v=McvzeZEbzJM)
 
 <div align="center">
   
