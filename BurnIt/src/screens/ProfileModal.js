@@ -5,11 +5,9 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
 import { CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET } from '@env';
 import axios from 'axios'
-import { UserContext } from '../../App';
 import auth from '../../firebaseSetup';
 
 const ProfileModal = ({ user, setUser, toggleProfileModal, handleCreateUser }) => {
-  const { setLogin } = useContext(UserContext);
   const [name, setName] = useState(user.name);
   const [profile_url, setProfile_url] = useState(user.profile_url);
   const [gender, setGender] = useState(user.gender);

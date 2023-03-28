@@ -10,11 +10,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View, Button, TextInput, Image, TouchableOpacity } from 'react-native';
-import { useContext } from 'react';
-import { UserContext } from '../../App';
 const SignInScreen = () => {
 
-  const { setLogin } = useContext(UserContext);
   const navigation = useNavigation();
 
   const SignInWithFB = async () => {
@@ -32,7 +29,6 @@ const SignInScreen = () => {
 
     const user = await signInWithCredential(auth, credential);
     console.log('after')
-    setLogin(true);
     navigation.navigate('Home');
   }
   const SignInWithGoogle = () => { };
