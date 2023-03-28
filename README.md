@@ -6,7 +6,7 @@
       <br>
     </h4>
     <h4 align="center">
-        <i>Empowed by GPT gpt-3.5-turbo and Nutritionix NLP API</i>
+        <i>Empowed by OpenAI gpt-3.5-turbo and Nutritionix NLP API</i>
       <br>
     </h4>
     <br>
@@ -25,7 +25,7 @@
 ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
 
 ## See how it works
-View the demo video [here](https://www.youtube.com/watch?v=QCMdGffHX-E)
+View the demo video [here](https://www.youtube.com/watch?v=McvzeZEbzJM)
 
 <div align="center">
   
@@ -72,7 +72,7 @@ View the demo video [here](https://www.youtube.com/watch?v=QCMdGffHX-E)
   <li>Allows the user to enter the food/activity items using natural language input.</li>
   <li>Leverages the power of Nutritionix NLP API to calculate the calorie intake/outtake of the user's meals.</li>
   <li>Displays the calorie content of each food/activity item in a meal using a pie chart.</li>  
-  <li>Allows users to quickly and easily understand the proportion of calories contributed by each food/activity item in their meal.</li>  
+  <li>Allows users to quickly and easily understand the proportion of calories contributed by each food/activity item with the pie charts.</li>  
 </ul>
 
 
