@@ -6,9 +6,11 @@ import ProfileModal from './ProfileModal.js';
 import axios from 'axios';
 import { LineChart } from 'react-native-chart-kit';
 
+import { useSelector } from 'react-redux';
 
 
-const Summary = ({ user, setUser, currentUser, handleCreateUser, update }) => {
+const Summary = ({ currentUser, handleCreateUser, update }) => {
+  const user = useSelector((state) => state.user);
   const [showProfileModal, setShowProfileModal] = useState(false);
   const [days, setDays] = useState(7); // default to last 7 days
   const [chartData, setChartData] = useState();
@@ -191,7 +193,7 @@ const Summary = ({ user, setUser, currentUser, handleCreateUser, update }) => {
       }
 
       <Modal visible={showProfileModal} animationType="slide">
-        <ProfileModal user={user} setUser={setUser} toggleProfileModal={toggleProfileModal} handleCreateUser={handleCreateUser} />
+        <ProfileModal toggleProfileModal={toggleProfileModal} handleCreateUser={handleCreateUser} />
       </Modal>
 
     </View>

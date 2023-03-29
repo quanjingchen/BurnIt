@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useFocusEffect } from '@react-navigation/native';
-
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Summary from './Summary.js';
@@ -11,22 +10,22 @@ import { getAuth } from 'firebase/auth';
 import auth from '../../firebaseSetup';
 import axios from 'axios';
 
+import { useSelector, useDispatch } from 'react-redux';
+import { setUser } from '../state/actions';
+
 const Tab = createMaterialBottomTabNavigator();
 
 const Home = () => {
-  // const auth = getAuth(app);
   const currentUser = auth.currentUser;
-  const [user, setUser] = useState({
-    uid: currentUser.uid,
-    name: currentUser.displayName,
-    profile_url:currentUser.photoURL,
-    gender: 'female',
-    weight_kg: 50,
-    height_cm: 160,
-    age: 30,
-  });
   const [update, setUpdate] = useState(true);
-
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const handleCreateUser = (data) => {
+    console.log('User: ', data);
+    axios.post('http://localhost:3000/users', data)
+    .then(res => {console.log('posted user')})
+    .catch(err => console.error('ERROR WITH POSTING DATA', err))
+  };
 
   const handleGetUser = () => {
     const uid = currentUser.uid;
@@ -37,15 +36,27 @@ const Home = () => {
         // console.log('userFromServer._id: ',  userFromServer)
         if (userFromServer) {
           console.log(userFromServer.profile_url);
-          setUser({
-            ...user,
+          dispatch(setUser({
+            uid: currentUser.uid,
             name: userFromServer.name,
-            gender: userFromServer.gender,
             profile_url: userFromServer.profile_url,
+            gender: userFromServer.gender,
             weight_kg: userFromServer.weight_kg,
             height_cm: userFromServer.height_cm,
             age: userFromServer.age,
-          });
+          }));
+        } else {
+          const newUser = {
+            uid: currentUser.uid,
+            name: currentUser.displayName,
+            profile_url: currentUser.photoURL,
+            gender: 'female',
+            weight_kg: 50,
+            height_cm: 160,
+            age: 30,
+          };
+          dispatch(setUser(newUser));
+          handleCreateUser(newUser);
         }
 
       })
@@ -54,18 +65,9 @@ const Home = () => {
       });
   };
 
-  const handleCreateUser = (data) => {
-    console.log('User: ', data);
-    axios.post('http://localhost:3000/users', data)
-    .then(res => {console.log('posted user')})
-    .catch(err => console.error('ERROR WITH POSTING DATA', err))
-  };
+
   useEffect(() => {handleGetUser()}, []);
-  // useFocusEffect(
-  //   React.useCallback(() => {
-  //     handleGetUser();
-  //   }, [])
-  // );
+
 
   return (
     <Tab.Navigator
@@ -85,7 +87,7 @@ const Home = () => {
           ),
         }}
       >
-        {(props) => <Summary {...props} user={user} setUser={setUser} currentUser={currentUser} update={update} handleCreateUser={handleCreateUser}/>}
+        {(props) => <Summary {...props} currentUser={currentUser} update={update} handleCreateUser={handleCreateUser}/>}
       </Tab.Screen>
 
       <Tab.Screen
@@ -97,7 +99,7 @@ const Home = () => {
           ),
         }}
       >
-          {(props) => <Meal {...props} user={user} setUpdate={setUpdate}/>}
+          {(props) => <Meal {...props} setUpdate={setUpdate}/>}
       </Tab.Screen>
 
       <Tab.Screen
@@ -109,7 +111,7 @@ const Home = () => {
           ),
         }}
       >
-        {(props) => <Exercise {...props} user={user} setUpdate={setUpdate}/>}
+        {(props) => <Exercise {...props} setUpdate={setUpdate}/>}
       </Tab.Screen>
 
     </Tab.Navigator>

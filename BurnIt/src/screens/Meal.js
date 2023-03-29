@@ -3,9 +3,10 @@ import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 import { VictoryPie, VictoryLabel } from 'victory-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 
-const Meal = ({ user, setUpdate }) => {
-  // const colors = ['#F44336', '#2196F3', '#FFEB3B', '#4CAF50', '#FF9800'];
+const Meal = ({ setUpdate }) => {
+  const user = useSelector((state) => state.user);
   const colors = ['#F66D44', '#FEAE65', '#E6F69D', '#AADEA7', '#64C2A6', '#2D87BB'];
   const displayNumber = 5;
 

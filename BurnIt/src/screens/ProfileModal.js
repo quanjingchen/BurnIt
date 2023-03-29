@@ -6,8 +6,12 @@ import * as ImagePicker from 'expo-image-picker';
 import { CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET } from '@env';
 import axios from 'axios'
 import auth from '../../firebaseSetup';
+import { useSelector, useDispatch } from 'react-redux';
+import { setUser } from '../state/actions';
 
-const ProfileModal = ({ user, setUser, toggleProfileModal, handleCreateUser }) => {
+const ProfileModal = ({ toggleProfileModal, handleCreateUser }) => {
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   const [name, setName] = useState(user.name);
   const [profile_url, setProfile_url] = useState(user.profile_url);
   const [gender, setGender] = useState(user.gender);
@@ -64,7 +68,7 @@ const ProfileModal = ({ user, setUser, toggleProfileModal, handleCreateUser }) =
       height_cm: Number(height),
       age: Number(age),
     };
-    setUser(updatedUser);
+    dispatch(setUser(updatedUser)); // dispatch the setUserAction action creator instead of calling setUser
     toggleProfileModal();
     handleCreateUser(updatedUser);
     setPhoto('');

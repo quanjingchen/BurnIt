@@ -3,8 +3,10 @@ import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 import { VictoryPie, VictoryLabel } from 'victory-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 
-const Exercise = ({ user, setUpdate }) => {
+const Exercise = ({ setUpdate }) => {
+  const user = useSelector((state) => state.user);
   const colors = ['#2D87BB', '#64C2A6','#AADEA7','#E6F69D', '#FEAE65', '#F66D44'];
   const displayNumber = 5;
   const [inputText, setInputText] = useState('');
