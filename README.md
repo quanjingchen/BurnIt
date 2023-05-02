@@ -76,6 +76,37 @@ View the demo video [here](https://www.youtube.com/watch?v=McvzeZEbzJM)
   <li>Allows users to quickly and easily understand the proportion of calories contributed by each food/activity item with the pie charts.</li>  
 </ul>
 
+## Database Setup
+The project uses MongoDB as the database and Mongoose for object modeling. The database includes three collections: User, Meal, and Exercise.
+User Schema
+| Field       | Type   | Options                              |
+|-------------|--------|--------------------------------------|
+| _id         | String | required: true, unique: true         |
+| name        | String |                                      |
+| profile_url | String |                                      |
+| gender      | String | enum: ['male', 'female'], default: 'female'   |
+| weight_kg   | Number | default: 50                          |
+| height_cm   | Number | default: 160                         |
+| age         | Number | default: 30                          |
+
+Meal Schema
+| Field       | Type   | Options                              |
+|-------------|--------|--------------------------------------|
+| user_id     | String | ref: 'User', required: true          |
+| date        | Date   | default: Date.now, required: true    |
+| food_name   | String |                                      |
+| nf_calories | Number |                                      |
+
+Exercise Schema
+| Field       | Type   | Options                              |
+|-------------|--------|--------------------------------------|
+| user_id     | String | ref: 'User', required: true          |
+| date        | Date   | default: Date.now, required: true    |
+| activity_name | String |                                    |
+| nf_calories | Number |                                      |
+
+
+
 
 
 
