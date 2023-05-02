@@ -120,7 +120,7 @@ The API is set up using the Model-View-Controller (MVC) architecture, with the f
 ### Suggestion Route
 
 - **GET** `/meals/suggestion`: Get personalized meal and activity suggestions using OpenAI gpt-3.5-turbo API.
-It accepts a GET request with a user_id query parameter. The function will first fetch the user's meal and activity data from the database using the models.meals.getMealCaloriesByDay and models.exercise.getExerciseCaloriesByDay functions.
+It accepts a GET request with a user_id query parameter. The function will first fetch the user's meal and activity data from the database using the `models.meals.getMealCaloriesByDay` and `models.exercise.getExerciseCaloriesByDay` functions.
 If there's no data available for the user, it will respond with an appropriate message. If there's not enough data, it will ask the user to provide more information.
 To generate personalized suggestions, it sends a request to OpenAI gpt-3.5-turbo API with a specially crafted prompt that includes the user's meal and activity data.
 The prompt is:  `Imagine you're a hilarious personal calorie consoler. I'll give you my meal and exercise data and you give one suggestion in 30 words or less with cute emoji. No formalities! Here is my meal data for the last few days, ${JSON.stringify(data1)}, and my activity data, ${JSON.stringify(data2)}`
