@@ -48,11 +48,11 @@ const ProfileModal = ({ toggleProfileModal, handleCreateUser }) => {
       await formData.append('upload_preset', 'cytbyzx8');
       await axios.post(`https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`, formData)
         .then(res => {
-          console.log('res.data.secure_url: ', res.data.secure_url);
+          // console.log('res.data.secure_url: ', res.data.secure_url);
           setProfile_url(res.data.secure_url);
           setPhoto(res.data.secure_url);
           setLoading(false); // set loading back to false when photo is uploaded
-          console.log('success with uploading photo to cloudinary: ', res.data.secure_url);
+          // console.log('success with uploading photo to cloudinary: ', res.data.secure_url);
         })
         .catch(err => console.error('err with uploading photo to cloudinary: ', err))
     }

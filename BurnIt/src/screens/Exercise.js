@@ -35,10 +35,10 @@ const Exercise = ({ setUpdate }) => {
   const handleAddButtonPress = () => {
     // Send a post request to the server with the inputText
     if (inputText === '') {
-      console.log('input is empty');
+      // console.log('input is empty');
       return;
     }
-    console.log('post exercise to server');
+    // console.log('post exercise to server');
     axios.post('http://localhost:3000/exercise', { exercise: inputText, user: user})
       .then(response => {
         // Clear the input text

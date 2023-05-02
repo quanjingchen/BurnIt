@@ -10,7 +10,7 @@ module.exports = {
 
   upsertUser: async (query, callback) => {
     const { uid, name, profile_url, gender, weight_kg, height_cm, age } = query;
-    console.log('uid: ', uid)
+    // console.log('uid: ', uid)
     const filter = { _id: uid };
     const update = {
       _id:uid,

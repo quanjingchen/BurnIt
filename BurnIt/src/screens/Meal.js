@@ -36,10 +36,10 @@ const Meal = ({ setUpdate }) => {
   const handleAddButtonPress = () => {
     // Send a post request to the server with the inputText
     if (inputText === '') {
-      console.log('input is empty');
+      // console.log('input is empty');
       return;
     }
-    console.log('post meal to server');
+    // console.log('post meal to server');
     axios.post('http://localhost:3000/meals', { food: inputText, user_id: user.uid })
       .then(response => {
         // Clear the input text

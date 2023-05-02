@@ -2,8 +2,6 @@ import { initializeApp } from 'firebase/app';
 import {REACT_APP_FIREBASE_API_KEY, REACT_APP_FIREBASE_AUTH_DOMAIN, REACT_APP_FIREBASE_PROJECT_ID, REACT_APP_FIREBASE_STORAGE_BUCKET, REACT_APP_FIREBASE_SENDER_ID, REACT_APP_FIREBASE_APP_ID} from "@env"
 import { getAuth } from 'firebase/auth';
 
-// import dotenv from 'dotenv';
-// dotenv.config();
 // Initialize Firebase
 const firebaseConfig = {
   apiKey: REACT_APP_FIREBASE_API_KEY,
@@ -19,5 +17,3 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 export default auth;
 
-// For more information on how to access Firebase in your project,
-// see the Firebase documentation: https://firebase.google.com/docs/web/setup#access-firebase

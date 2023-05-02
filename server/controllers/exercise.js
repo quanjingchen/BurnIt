@@ -14,8 +14,8 @@ module.exports = {
 
   getExerciseByDate: (req, res) => {
     const {date1, date2, user_id} = req.query;
-    console.log('CONTROLLER date1: ', date1);
-    console.log('CONTROLLER date2: ', date2);
+    // console.log('CONTROLLER date1: ', date1);
+    // console.log('CONTROLLER date2: ', date2);
     models.exercise.getExerciseByDate(date1, date2, user_id, (err, result) => {
       if (err) {
         console.error('ERR WITH GETING exercise FROM DB: ', err);
@@ -29,7 +29,7 @@ module.exports = {
         }));
         // sent the top 5 foods to the client
         res.status(200).json(capitalizedData);
-        console.log('GETING exercise FROM DB SUCCESSFULLY:', result);
+        // console.log('GETING exercise FROM DB SUCCESSFULLY:', result);
       }
     });
   },
@@ -67,14 +67,14 @@ module.exports = {
           activity_name: activity.name,
           nf_calories: activity.nf_calories,
         }));
-        console.log('exercise Data from API', exercise);
+        // console.log('exercise Data from API', exercise);
 
         // insert exercise into meal collection
         models.exercise.addExercise(user_id, exercise,  (err, result) => {
           if (err) {
             console.error('ERR WITH POSTING EXERCISE TO DB: ', err);
           } else {
-            console.log('EXERCISE created successfully') ;
+            // console.log('EXERCISE created successfully') ;
           }
         });
         // sort the activity by nf_calories
@@ -89,7 +89,7 @@ module.exports = {
         res.status(201).json(pieChartData);
       })
       .catch(error => {
-        console.log(error);
+        console.error(error);
         res.send({ success: false });
       });
   }

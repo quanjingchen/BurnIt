@@ -18,7 +18,6 @@ const Stack = createStackNavigator();
 export default function App() {
   LogBox.ignoreAllLogs();
 
-
   return (
     <Provider store={store}>
       <NavigationContainer>

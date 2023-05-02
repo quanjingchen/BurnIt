@@ -21,21 +21,20 @@ const Home = () => {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const handleCreateUser = (data) => {
-    console.log('User: ', data);
     axios.post('http://localhost:3000/users', data)
-    .then(res => {console.log('posted user')})
+    .then(res => {
+      // console.log('posted user')
+    })
     .catch(err => console.error('ERROR WITH POSTING DATA', err))
   };
 
   const handleGetUser = () => {
     const uid = currentUser.uid;
-    console.log('getUserID: ', uid);
+    // console.log('getUserID: ', uid);
     axios.get(`http://localhost:3000/users/${uid}`)
       .then(response => {
         const userFromServer = response.data;
-        // console.log('userFromServer._id: ',  userFromServer)
         if (userFromServer) {
-          console.log(userFromServer.profile_url);
           dispatch(setUser({
             uid: currentUser.uid,
             name: userFromServer.name,

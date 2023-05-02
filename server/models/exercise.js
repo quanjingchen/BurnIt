@@ -17,8 +17,8 @@ module.exports = {
 
 
   getExerciseByDate: (date1, date2, user_id, callback) => {
-    console.log('date1: ',typeof date1);
-    console.log('date2: ', typeof date2);
+    // console.log('date1: ',typeof date1);
+    // console.log('date2: ', typeof date2);
     date1 = new Date(date1);
     date2 = new Date(date2);
     Exercise.aggregate([

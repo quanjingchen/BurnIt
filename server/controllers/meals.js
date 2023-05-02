@@ -14,8 +14,8 @@ module.exports = {
 
   getMealByDate: (req, res) => {
     const { date1, date2, user_id } = req.query;
-    console.log('CONTROLLER date1: ', date1);
-    console.log('CONTROLLER date2: ', date2);
+    // console.log('CONTROLLER date1: ', date1);
+    // console.log('CONTROLLER date2: ', date2);
     models.meals.getMealByDate(date1, date2, user_id, (err, result) => {
       if (err) {
         console.error('ERR WITH GETING MEAL FROM DB: ', err);
@@ -74,7 +74,7 @@ module.exports = {
 
       })
       .catch(error => {
-        console.log(error);
+        console.error(error);
         res.send({ success: false });
       });
   }

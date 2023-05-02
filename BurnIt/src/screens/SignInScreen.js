@@ -25,10 +25,10 @@ const SignInScreen = () => {
     }
     // const auth = getAuth(app);
     const credential = FacebookAuthProvider.credential(data.accessToken);
-    console.log('before: ', auth);
+    // console.log('before: ', auth);
 
     const user = await signInWithCredential(auth, credential);
-    console.log('after')
+    // console.log('after')
     navigation.navigate('Home');
   }
   const SignInWithGoogle = () => { };

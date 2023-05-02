@@ -113,7 +113,7 @@ const Summary = ({ currentUser, handleCreateUser, update }) => {
   useEffect(postChatGPT, [update]);
 
   useEffect(() => {
-    console.log("Update value changed");
+    // console.log("Update value changed");
     handleGetCaloriesIntake()
   }, []);
 
