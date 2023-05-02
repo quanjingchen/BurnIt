@@ -118,6 +118,28 @@ The API is set up using the Model-View-Controller (MVC) architecture, with the f
 
 - **GET** `/meals`: Get meals for the present day.
 - **GET** `/meals/summary`: Get a summary of calorie consumption for the past week (7 days) or the past month (30 days).
+`    var startDate = new Date(Date.now() - days * 24 * 60 * 60 * 1000);
+    Meal.aggregate([
+      { $match: { user_id: user_id, date: { $gte: startDate } } },
+      { $group: { _id: { $dateToString: { format: '%Y-%m-%d', date: '$date' } }, totalCalories: { $sum: '$nf_calories' } } },
+      { $sort: { _id: 1 } }
+    ])`
+ * 1. Calculate the `startDate` by subtracting the desired number of days (either 7 or 30) from the current date. 
+ *    This gives the start date for the range in which we want to calculate the calories.
+ *    ```
+ *    var startDate = new Date(Date.now() - days * 24 * 60 * 60 * 1000);
+ *    ```
+ *
+ * 2. Perform an aggregation query on the `Meal` collection with the following stages:
+ *
+ *    a. `$match`: Filter the documents by selecting those with a `user_id` matching the given `user_id` and a `date` 
+ *       greater than or equal to the `startDate`.
+ *    b. `$group`: Group the documents by the date, formatting the date as a string in the format 'YYYY-MM-DD'. 
+ *       Calculate the total calories for each group using the `$sum` operator, which adds up the `nf_calories` field for all documents in the group.
+ *    c. `$sort`: Sort the grouped documents by their date in ascending order (from the oldest to the most recent).
+ *
+ * 3. Return the aggregation result via a callback function. If there's an error during the aggregation, pass the error to the callback function as well.
+ *
 - **POST** `/meals`: Add meal data.
 
 ### Exercise Routes
