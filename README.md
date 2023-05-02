@@ -78,7 +78,8 @@ View the demo video [here](https://www.youtube.com/watch?v=McvzeZEbzJM)
 
 ## Database Setup
 The project uses MongoDB as the database and Mongoose for object modeling. The database includes three collections: User, Meal, and Exercise.
-User Schema
+
+###User Schema
 | Field       | Type   | Options                              |
 |-------------|--------|--------------------------------------|
 | _id         | String | required: true, unique: true         |
@@ -89,7 +90,7 @@ User Schema
 | height_cm   | Number | default: 160                         |
 | age         | Number | default: 30                          |
 
-Meal Schema
+###Meal Schema
 | Field       | Type   | Options                              |
 |-------------|--------|--------------------------------------|
 | user_id     | String | ref: 'User', required: true          |
@@ -97,7 +98,7 @@ Meal Schema
 | food_name   | String |                                      |
 | nf_calories | Number |                                      |
 
-Exercise Schema
+###Exercise Schema
 | Field       | Type   | Options                              |
 |-------------|--------|--------------------------------------|
 | user_id     | String | ref: 'User', required: true          |
@@ -117,7 +118,6 @@ The API is set up using the Model-View-Controller (MVC) architecture, with the f
 
 - **GET** `/meals`: Get meals by date.
 - **GET** `/meals/summary`: Get calories summary by days.
-- **GET** `/meals/suggestion`: Get meal suggestions.
 - **POST** `/meals`: Add a meal.
 
 ### Exercise Routes
@@ -125,6 +125,30 @@ The API is set up using the Model-View-Controller (MVC) architecture, with the f
 - **GET** `/exercise/summary`: Get calories summary by days.
 - **GET** `/exercise`: Get exercises by date.
 - **POST** `/exercise`: Add an exercise.
+
+### Suggestion Route
+
+- **GET** `/meals/suggestion`: Get personalized meal and activity suggestions using OpenAI gpt-3.5-turbo API
+It accepts a GET request with a user_id query parameter. The function will first fetch the user's meal and activity data from the database using the models.meals.getMealCaloriesByDay and models.exercise.getExerciseCaloriesByDay functions.
+If there's no data available for the user, Calor will respond with an appropriate message. If there's not enough data, it will ask the user to provide more information.
+To generate personalized suggestions, Calor sends a request to OpenAI gpt-3.5-turbo API with a specially crafted prompt that includes the user's meal and activity data.
+
+### OpenAI gpt-3.5-turbo API Configuration
+The following configuration parameters are used to customize the suggestions:
+
+  - `model`: "gpt-3.5-turbo"
+  - `temperature`: 0.7
+  - `max_tokens`: 100
+  - `top_p`: 1
+  - `frequency_penalty`: 0
+  - `presence_penalty`: 0
+  
+These parameters can be adjusted to change the style and length of the suggestions.
+
+The prompt is:  `Imagine you're a hilarious personal calorie consoler. I'll give you my meal and exercise data and you give one suggestion in 30 words or less with cute emoji. No formalities! Here is my meal data for the last few days, ${JSON.stringify(data1)}, and my activity data, ${JSON.stringify(data2)}`
+
+
+
 
 
 
