@@ -125,7 +125,7 @@ If there's no data available for the user, it will respond with an appropriate m
 To generate personalized suggestions, it sends a request to OpenAI gpt-3.5-turbo API with a specially crafted prompt that includes the user's meal and activity data.
 
 
-### OpenAI gpt-3.5-turbo API Configuration
+## OpenAI gpt-3.5-turbo API Configuration
 The following configuration parameters are used to customize the suggestions:
 
   - `model`: "gpt-3.5-turbo"
