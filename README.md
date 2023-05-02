@@ -140,19 +140,7 @@ It accepts a GET request with a user_id query parameter. The function will first
 If there's no data available for the user, it will respond with an appropriate message. If there's not enough data, it will ask the user to provide more information.
 To generate personalized suggestions, it sends a request to OpenAI gpt-3.5-turbo API with a specially crafted prompt that includes the user's meal and activity data.
 The prompt is:  `Imagine you're a hilarious personal calorie consoler. I'll give you my meal and exercise data and you give one suggestion in 30 words or less with cute emoji. No formalities! Here is my meal data for the last few days, ${JSON.stringify(data1)}, and my activity data, ${JSON.stringify(data2)}`
-The calories are calculated using the following steps:
 
-startDate is calculated by subtracting the desired number of days (either 7 or 30) from the current date. This gives the start date for the range in which we want to calculate the calories.
-
-An aggregation query is performed on the Meal collection with the following stages:
-
-a. $match: This stage filters the documents by selecting those with a user_id matching the given user_id and a date greater than or equal to the startDate.
-
-b. $group: This stage groups the documents by the date, formatting the date as a string in the format 'YYYY-MM-DD'. The total calories are calculated for each group using the $sum operator, which adds up the nf_calories field for all documents in the group.
-
-c. $sort: This stage sorts the grouped documents by their date in ascending order (from the oldest to the most recent).
-
-The aggregation result is then returned via a callback function. If there's an error during the aggregation, the error is passed to the callback function as well.
 ### OpenAI gpt-3.5-turbo API Configuration
 The following configuration parameters are used to customize the suggestions:
 
