@@ -17,6 +17,7 @@
 
 ![React Native](https://img.shields.io/badge/react_native-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![Expo](https://img.shields.io/badge/expo-1C1E24?style=for-the-badge&logo=expo&logoColor=#D04A37)
+![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
 ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![Firebase](https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white)
@@ -54,7 +55,7 @@ View the demo video [here](https://www.youtube.com/watch?v=McvzeZEbzJM)
 
 <ul>
   <li>Displays a summary of the user's calorie intake and outtake.</li>
-  <li>Uses GPT gpt-3.5-turbo to generate a quick and personalized suggestion on user's calorie intake and physical activity.</li>
+  <li>Uses OpenAI gpt-3.5-turbo to generate a quick and personalized suggestion on user's calorie intake and physical activity.</li>
   <li>Includes a date selector that allows the user to choose to display last 7 days or last 30 days.</li>
   <li>Includes a line chart that visualizes the user's calorie intake and outtake over time.</li>
   <li>Clicking on the profile avatar will open a modal that allows the user to edit their profile information and log out.</li>  
