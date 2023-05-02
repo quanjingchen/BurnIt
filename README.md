@@ -105,9 +105,26 @@ Exercise Schema
 | activity_name | String |                                    |
 | nf_calories | Number |                                      |
 
+## API Setup
+The API is set up using the Model-View-Controller (MVC) architecture, with the following routes:
 
+### User Routes
 
+- **GET** `/users/:uid`: Get user data by user ID.
+- **POST** `/users`: Create or update a user.
 
+### Meal Routes
+
+- **GET** `/meals`: Get meals by date.
+- **GET** `/meals/summary`: Get calories summary by days.
+- **GET** `/meals/suggestion`: Get meal suggestions.
+- **POST** `/meals`: Add a meal.
+
+### Exercise Routes
+
+- **GET** `/exercise/summary`: Get calories summary by days.
+- **GET** `/exercise`: Get exercises by date.
+- **POST** `/exercise`: Add an exercise.
 
 
 
