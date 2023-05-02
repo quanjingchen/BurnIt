@@ -108,7 +108,7 @@ The API is set up using the Model-View-Controller (MVC) architecture, with the f
 ### Meal Routes
 
 - **GET** `/meals`: Get meals for the present day.
-- **GET** `/meals/summary`: Get a summary of calorie consumption for the past week (7 days) or the past month (30 days). It uses an aggregation query that filters documents based on user_id and date, groups them by date, calculates the total calories for each group, and sorts the results in ascending order by date.
+- **GET** `/meals/summary`: Get a summary of calorie consumption for the past week (7 days) or the past month (30 days). It uses an aggregation query that filters documents based on user_id, groups them by date, calculates the total calories for each group, and sorts the results in ascending order by date.
 - **POST** `/meals`: Add meal data.
 
 ### Exercise Routes
