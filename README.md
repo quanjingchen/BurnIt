@@ -108,14 +108,7 @@ The API is set up using the Model-View-Controller (MVC) architecture, with the f
 ### Meal Routes
 
 - **GET** `/meals`: Get meals for the present day.
-- **GET** `/meals/summary`: Get a summary of calorie consumption for the past week (7 days) or the past month (30 days).
-`    var startDate = new Date(Date.now() - days * 24 * 60 * 60 * 1000);
-    Meal.aggregate([
-      { $match: { user_id: user_id, date: { $gte: startDate } } },
-      { $group: { _id: { $dateToString: { format: '%Y-%m-%d', date: '$date' } }, totalCalories: { $sum: '$nf_calories' } } },
-      { $sort: { _id: 1 } }
-    ])`
-
+- **GET** `/meals/summary`: Get a summary of calorie consumption for the past week (7 days) or the past month (30 days). It uses an aggregation query that filters documents based on user_id and date, groups them by date, calculates the total calories for each group, and sorts the results in ascending order by date.
 - **POST** `/meals`: Add meal data.
 
 ### Exercise Routes
