@@ -116,15 +116,15 @@ The API is set up using the Model-View-Controller (MVC) architecture, with the f
 
 ### Meal Routes
 
-- **GET** `/meals`: Get meals by date.
-- **GET** `/meals/summary`: Get calories summary by days.
-- **POST** `/meals`: Add a meal.
+- **GET** `/meals`: Get meals for the present day.
+- **GET** `/meals/summary`: Get a summary of calorie consumption for the past week (7 days) or the past month (30 days).
+- **POST** `/meals`: Add meal data.
 
 ### Exercise Routes
 
-- **GET** `/exercise/summary`: Get calories summary by days.
-- **GET** `/exercise`: Get exercises by date.
-- **POST** `/exercise`: Add an exercise.
+- **GET** `/exercise`: Get exercises for the present day .
+- **GET** `/exercise/summary`: Get a summary of calorie outtake for the past week (7 days) or the past month (30 days).
+- **POST** `/exercise`: Add exercise data.
 
 ### Suggestion Route
 
