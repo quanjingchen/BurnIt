@@ -135,6 +135,7 @@ The following configuration parameters are used to customize the suggestions:
   - `frequency_penalty`: 0
   - `presence_penalty`: 0
 
+
 The prompt is:  `Imagine you're a hilarious personal calorie consoler. I'll give you my meal and exercise data and you give one suggestion in 30 words or less with cute emoji. No formalities! Here is my meal data for the last few days, ${JSON.stringify(data1)}, and my activity data, ${JSON.stringify(data2)}`
   
 These parameters can be adjusted to change the style and length of the suggestions.
